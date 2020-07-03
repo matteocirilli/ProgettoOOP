@@ -49,7 +49,7 @@ public class FacebookAlbum {
 		this.created_time = created_time;
 	}
 	
-	okkk
+	
 	
 	
 }
