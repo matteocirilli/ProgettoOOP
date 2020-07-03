@@ -47,9 +47,9 @@ public class FacebookAlbum {
 	 */
 	public void setCreated_time(int created_time) {
 		this.created_time = created_time;
-	}ok
+	}
 	
-	
+	okkk
 	
 	
 }
