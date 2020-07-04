@@ -64,16 +64,8 @@ public class FacebookService {
 		}
 			
 		
-		return response.toString();
+		return response.toString();	
 		
-		
-
-
-
-
-
-
-
 
 	}
 
