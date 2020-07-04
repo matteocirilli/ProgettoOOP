@@ -24,15 +24,14 @@ public class FacebookService {
 	}
 
 
-	public FacebookAlbum[] ParseJson (String jsonString) {
-		JSONObject obj = new JSONObject(jsonString);
-		String pageName = obj.getJSONObject("pageInfo").getString("pageName");
 
-		JSONArray arr = obj.getJSONArray("posts");
-		for (int i = 0; i < arr.length(); i++)
-		{
-			String post_id = arr.getJSONObject(i).getString("post_id");
-		}
+	public FacebookAlbum[] ParseJson (String jsonString) {
+	public void ParseJson (String jsonString) {
+		JSONObject obj = new JSONObject(jsonString);
+		JSONObject photos = obj.getJSONObject("photos");
+		JSONArray data = photos.getJSONArray("data");
+		
+		
 
 
 	}

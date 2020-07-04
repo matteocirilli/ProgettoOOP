@@ -1,53 +1,63 @@
 package it.univpm.projectOOP.model;
+import java.util.ArrayList;
 
 public class FacebookAlbum {
 
-	private int height;
-	private int width;
-	private int created_time;
+	private ArrayList <Integer> height;
+	private ArrayList <Integer> width;
+	private ArrayList <String> created_time;
 	
-	public FacebookAlbum(int height, int width, int created_time) {
+	public FacebookAlbum(ArrayList<Integer> height, ArrayList<Integer> width, ArrayList<String> created_time) {
 		super();
 		this.height = height;
 		this.width = width;
 		this.created_time = created_time;
 	}
+
 	/**
 	 * @return the height
 	 */
-	public int getHeight() {
+	public ArrayList<Integer> getHeight() {
 		return height;
 	}
+
 	/**
 	 * @param height the height to set
 	 */
-	public void setHeight(int height) {
+	public void setHeight(ArrayList<Integer> height) {
 		this.height = height;
 	}
+
 	/**
 	 * @return the width
 	 */
-	public int getWidth() {
+	public ArrayList<Integer> getWidth() {
 		return width;
 	}
+
 	/**
 	 * @param width the width to set
 	 */
-	public void setWidth(int width) {
+	public void setWidth(ArrayList<Integer> width) {
 		this.width = width;
 	}
+
 	/**
 	 * @return the created_time
 	 */
-	public int getCreated_time() {
+	public ArrayList<String> getCreated_time() {
 		return created_time;
 	}
+
 	/**
 	 * @param created_time the created_time to set
 	 */
-	public void setCreated_time(int created_time) {
+	public void setCreated_time(ArrayList<String> created_time) {
 		this.created_time = created_time;
 	}
+	
+	
+	
 	
 	
 	
