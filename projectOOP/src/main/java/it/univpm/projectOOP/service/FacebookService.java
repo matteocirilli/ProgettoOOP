@@ -24,7 +24,7 @@ public class FacebookService {
 	}
 
 
-	public int ParseJson () {
+	public FacebookAlbum[] ParseJson (String jsonString) {
 		JSONObject obj = new JSONObject(jsonString);
 		String pageName = obj.getJSONObject("pageInfo").getString("pageName");
 
