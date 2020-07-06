@@ -28,20 +28,31 @@ public class FacebookService {
 	public void ParseJson (String jsonString) {
 
 		FacebookAlbum album = new FacebookAlbum();
-		ArrayList<Integer> altezza = album.getHeight();
-		ArrayList<Integer> larghezza = album.getWidth();
-		ArrayList<String> datecreazione = album.getCreated_time();
+		ArrayList<Integer> altezza = new  ArrayList<Integer>();
+		ArrayList<Integer> larghezza = new ArrayList <Integer>();
+		ArrayList<String> datecreazione = new ArrayList <String>();
+		ArrayList<Integer> dimensioni = new ArrayList <Integer>();
 
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
 		JSONArray data = photos.getJSONArray("data");
+		int c= data.length();
+
 
 		for(int i=0;i<data.length();i++)
 		{
 			altezza.add(data.getJSONObject(i).getInt("height"));
 			larghezza.add(data.getJSONObject(i).getInt("width"));
 			datecreazione.add(data.getJSONObject(i).getString("created_time"));
+			dimensioni.add((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width")));
 		}
+
+		album.setHeight(altezza);
+		album.setCreated_time(datecreazione);
+		album.setWidth(larghezza);
+		album.setByte_dimension(dimensioni);
+
+
 		myfblist.add(album);
 
 
@@ -52,7 +63,7 @@ public class FacebookService {
 
 	public String getFromFacebook (String fburl) {
 
-		StringBuilder response = new StringBuilder();
+		String response = "";
 		int responsecode=0;
 
 		try {
@@ -63,11 +74,8 @@ public class FacebookService {
 			BufferedReader read = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = read.readLine();
 
-			while(line!=null) {
-				response.append(line);
-				responsecode = connection.getResponseCode();
+			response=line;
 
-			}
 
 		} catch(MalformedURLException ex) {
 			ex.printStackTrace();
@@ -76,7 +84,7 @@ public class FacebookService {
 		}
 
 
-		return response.toString();	
+		return response;
 
 
 	}

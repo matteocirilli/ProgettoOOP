@@ -6,7 +6,21 @@ public class FacebookAlbum {
 	private ArrayList <Integer> height;
 	private ArrayList <Integer> width;
 	private ArrayList <String> created_time;
-	
+	private ArrayList <Integer> byte_dimension;
+
+	/**
+	 * @return the byte_dimension
+	 */
+	public ArrayList<Integer> getByte_dimension() {
+		return byte_dimension;
+	}
+
+	/**
+	 * @param byte_dimension the byte_dimension to set
+	 */
+	public void setByte_dimension(ArrayList<Integer> byte_dimension) {
+		this.byte_dimension = byte_dimension;
+	}
 
 	/**
 	 * @return the height
