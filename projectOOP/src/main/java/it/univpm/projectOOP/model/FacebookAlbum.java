@@ -8,9 +8,6 @@ public class FacebookAlbum {
 	private ArrayList <String> created_time;
 	
 
-		
-	
-
 	/**
 	 * @return the height
 	 */
