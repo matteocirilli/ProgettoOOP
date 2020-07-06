@@ -24,19 +24,13 @@ public class FacebookService {
 		return myfblist;
 	}
 
-
-
-	public FacebookAlbum[] ParseJson (String jsonString) {
 	public void ParseJson (String jsonString) {
-<<<<<<< HEAD
-=======
+
 
 		FacebookAlbum album = new FacebookAlbum();
 		ArrayList<Integer> altezza = album.getHeight();
 		ArrayList<Integer> larghezza = album.getWidth();
 		ArrayList<String> datecreazione = album.getCreated_time();
-
->>>>>>> branch 'master' of https://github.com/matteocirilli/ProgettoOOP.git
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
 		JSONArray data = photos.getJSONArray("data");
