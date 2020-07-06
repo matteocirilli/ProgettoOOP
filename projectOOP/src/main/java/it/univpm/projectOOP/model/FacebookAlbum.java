@@ -7,12 +7,9 @@ public class FacebookAlbum {
 	private ArrayList <Integer> width;
 	private ArrayList <String> created_time;
 	
-	public FacebookAlbum(ArrayList<Integer> height, ArrayList<Integer> width, ArrayList<String> created_time) {
-		super();
-		this.height = height;
-		this.width = width;
-		this.created_time = created_time;
-	}
+
+		
+	
 
 	/**
 	 * @return the height
