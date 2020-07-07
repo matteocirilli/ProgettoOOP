@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import it.univpm.projectOOP.service.*;
+import it.univpm.projectOOP.filters_statistics.*;
 
 @RestController
 public class FacebookController {
@@ -40,12 +41,12 @@ public class FacebookController {
 //		
 //		return new ResponseEntity<Object> (service.filtering(bodyFilter, service.getTweet()), HttpStatus.OK);
 //	}
-//
-//	
-//	@PostMapping("/fb/stats")
-//	public ResponseEntity<Object> stats(@RequestBody String bodyFilter) throws ParseException, WrongFilterException, GetTweetException {
-//		return new ResponseEntity<Object> (Stats.stats(service.filtering(bodyFilter, service.getTweet())), HttpStatus.OK);
-//	}
+
+	
+	@PostMapping("/fb/statistiche")
+	public ResponseEntity<Object> statistiche(@RequestBody String bodyFilter) {
+		return new ResponseEntity<Object> (Statistiche.statistiche(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	}
 
 
 
