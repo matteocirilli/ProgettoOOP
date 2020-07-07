@@ -1,7 +1,8 @@
 package it.univpm.projectOOP.filters_statistics;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
+import java.util.LinkedHashMap;
+
 
 import it.univpm.projectOOP.model.*;
 
@@ -9,9 +10,9 @@ import it.univpm.projectOOP.model.*;
 public class Statistiche {
 	//Classe Statischiche
 
-	public static TreeMap<String, Float> statistiche (ArrayList<FacebookAlbum> myfblist){
+	public static LinkedHashMap<String, Float> statistiche (ArrayList<FacebookAlbum> myfblist){
 
-		TreeMap<String, Float> statMap = new TreeMap<String, Float>();
+		LinkedHashMap<String, Float> statMap = new LinkedHashMap<String, Float>();
 		
 
 		for (int i = 0; i < myfblist.size(); i++) {
