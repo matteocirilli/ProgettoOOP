@@ -36,7 +36,7 @@ public class FacebookService {
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
 		JSONArray data = photos.getJSONArray("data");
-		int c= data.length();
+		
 
 
 		for(int i=0;i<data.length();i++)
