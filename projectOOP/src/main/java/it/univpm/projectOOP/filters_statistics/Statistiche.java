@@ -48,11 +48,11 @@ public class Statistiche {
 			
 			devStandard = (float) Math.sqrt(varianza);	
 			
-			statMap.put("Minimo Byte album " + i, (float) minByte);
-			statMap.put("Massimo Byte album " + i, (float) maxByte);
-			statMap.put("Media Byte album " + i, (float) mediaByte);
-			statMap.put("Varianza Byte album " + i, (float) varianza);
-			statMap.put("Deviazione standard Byte album " + i, (float) devStandard);		
+			statMap.put("Minimo Byte album " + i+1, (float) minByte);
+			statMap.put("Massimo Byte album " + i+1, (float) maxByte);
+			statMap.put("Media Byte album " + i+1, (float) mediaByte);
+			statMap.put("Varianza Byte album " + i+1, (float) varianza);
+			statMap.put("Deviazione standard Byte album " + i+1, (float) devStandard);		
 			
 						
 		}
