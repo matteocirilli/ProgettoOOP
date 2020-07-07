@@ -1,16 +1,17 @@
 package it.univpm.projectOOP.filters_statistics;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
+
 import it.univpm.projectOOP.model.*;
 
 
 public class Statistiche {
 	//Classe Statischiche
 
-	public static HashMap<String, Float> statistiche (ArrayList<FacebookAlbum> myfblist){
+	public static TreeMap<String, Float> statistiche (ArrayList<FacebookAlbum> myfblist){
 
-		HashMap<String, Float> statMap = new HashMap<String, Float>();
+		TreeMap<String, Float> statMap = new TreeMap<String, Float>();
 		
 
 		for (int i = 0; i < myfblist.size(); i++) {
