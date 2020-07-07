@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.net.MalformedURLException;
 
 import java.io.*;
@@ -21,7 +22,7 @@ import it.univpm.projectOOP.filters_statistics.*;
 public class FacebookController {
 	FacebookService serviziofb = new FacebookService();
 	@PostMapping("/fb")
-	public ResponseEntity<Object> FotoAlbum(@RequestBody String url) throws MalformedURLException, IOException {
+	public ResponseEntity<Object> FotoAlbum(@RequestBody String url) throws MalformedURLException, IOException, ParseException {
 
 
 		serviziofb.ParseJson(serviziofb.getFromFacebook(url));
@@ -36,11 +37,6 @@ public class FacebookController {
 	}
 	
 
-//	@PostMapping("/fb/filter")
-//	public ResponseEntity<Object> filtering(@RequestBody String bodyFilter) throws ParseException, WrongFilterException, GetTweetException {
-//		
-//		return new ResponseEntity<Object> (service.filtering(bodyFilter, service.getTweet()), HttpStatus.OK);
-//	}
 
 	
 	@RequestMapping(value = "/fb/statistiche", method = RequestMethod.GET)

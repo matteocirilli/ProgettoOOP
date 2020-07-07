@@ -7,8 +7,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import it.univpm.projectOOP.model.FacebookAlbum;
 
@@ -23,7 +26,7 @@ public class FacebookService {
 	public ArrayList<FacebookAlbum> getFacebookAlbums () {
 		return myfblist;
 	}
-	public void ParseJson (String jsonString) {
+	public void ParseJson (String jsonString) throws ParseException {
 
 
 		FacebookAlbum album = new FacebookAlbum();	
@@ -44,7 +47,14 @@ public class FacebookService {
 		{
 			altezza.add(data.getJSONObject(i).getInt("height"));
 			larghezza.add(data.getJSONObject(i).getInt("width"));
-			datecreazione.add(data.getJSONObject(i).getString("created_time"));
+			String s = data.getJSONObject(i).getString("created_time");
+			
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0000'");
+			Date date = dateFormat.parse(s);//You will get date object relative to server/client timezone wherever it is parsed
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); //If you need time just put specific format for time like 'HH:mm:ss'
+			String dateStr = formatter.format(date);
+			datecreazione.add(dateStr);
+			
 			dimensioni.add((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width")));
 		}
 
