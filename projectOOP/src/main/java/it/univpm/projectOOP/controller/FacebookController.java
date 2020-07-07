@@ -33,6 +33,19 @@ public class FacebookController {
 	public ResponseEntity<Object> getFbAlbums()  {
 		return new ResponseEntity<>(serviziofb.getFacebookAlbums(), HttpStatus.OK);
 	}
+	
+
+//	@PostMapping("/fb/filter")
+//	public ResponseEntity<Object> filtering(@RequestBody String bodyFilter) throws ParseException, WrongFilterException, GetTweetException {
+//		
+//		return new ResponseEntity<Object> (service.filtering(bodyFilter, service.getTweet()), HttpStatus.OK);
+//	}
+//
+//	
+//	@PostMapping("/fb/stats")
+//	public ResponseEntity<Object> stats(@RequestBody String bodyFilter) throws ParseException, WrongFilterException, GetTweetException {
+//		return new ResponseEntity<Object> (Stats.stats(service.filtering(bodyFilter, service.getTweet())), HttpStatus.OK);
+//	}
 
 
 

@@ -23,20 +23,21 @@ public class FacebookService {
 	public ArrayList<FacebookAlbum> getFacebookAlbums () {
 		return myfblist;
 	}
-
-
 	public void ParseJson (String jsonString) {
 
-		FacebookAlbum album = new FacebookAlbum();
+
+		FacebookAlbum album = new FacebookAlbum();	
+
 		ArrayList<Integer> altezza = new  ArrayList<Integer>();
 		ArrayList<Integer> larghezza = new ArrayList <Integer>();
 		ArrayList<String> datecreazione = new ArrayList <String>();
 		ArrayList<Integer> dimensioni = new ArrayList <Integer>();
 
+
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
 		JSONArray data = photos.getJSONArray("data");
-		
+
 
 
 		for(int i=0;i<data.length();i++)
