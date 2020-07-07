@@ -43,8 +43,8 @@ public class FacebookController {
 //	}
 
 	
-	@PostMapping("/fb/statistiche")
-	public ResponseEntity<Object> statistiche(@RequestBody String bodyFilter) {
+	@RequestMapping(value = "/fb/statistiche", method = RequestMethod.GET)
+	public ResponseEntity<Object> statistiche() {
 		return new ResponseEntity<Object> (Statistiche.statistiche(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
 
