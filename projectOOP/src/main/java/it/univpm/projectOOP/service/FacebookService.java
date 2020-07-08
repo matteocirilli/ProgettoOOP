@@ -79,7 +79,7 @@ public class FacebookService {
 	public String getFromFacebook (String fburl) {
 
 		String response = "";
-		int responsecode=0;
+	
 
 		try {
 
@@ -107,10 +107,10 @@ public class FacebookService {
 		
 		ArrayList <FacebookAlbum>filteredList = new ArrayList <FacebookAlbum>();
 		int width = body.getInt("width");
-		int heigth = body.getInt("height");
+		int height = body.getInt("height");
 		String filter = body.getString("filter");
 		
-		filteredList = Filtri.filtroRisoluzione(fblist, filter, width, heigth);
+		filteredList = Filtri.filtroRisoluzione(fblist, filter, width, height);
 		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
 		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
 			//throw new WrongFilterException("Il filtro inserito non è corretto!");
