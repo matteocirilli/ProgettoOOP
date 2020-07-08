@@ -31,10 +31,11 @@ public class FacebookService {
 
 		FacebookAlbum album = new FacebookAlbum();	
 
-		ArrayList<Integer> altezza = new  ArrayList<Integer>();
-		ArrayList<Integer> larghezza = new ArrayList <Integer>();
+		//ArrayList<Integer> altezza = new  ArrayList<Integer>();
+		//ArrayList<Integer> larghezza = new ArrayList <Integer>();
 		ArrayList<String> datecreazione = new ArrayList <String>();
 		ArrayList<Integer> dimensioni = new ArrayList <Integer>();
+		ArrayList<String> pixel_img = new ArrayList <String>();
 
 
 		JSONObject obj = new JSONObject(jsonString);
@@ -45,22 +46,23 @@ public class FacebookService {
 
 		for(int i=0;i<data.length();i++)
 		{
-			altezza.add(data.getJSONObject(i).getInt("height"));
-			larghezza.add(data.getJSONObject(i).getInt("width"));
+			//altezza.add(data.getJSONObject(i).getInt("height"));
+			//larghezza.add(data.getJSONObject(i).getInt("width"));
 			String s = data.getJSONObject(i).getString("created_time");
 			
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0000'");
-			Date date = dateFormat.parse(s);//You will get date object relative to server/client timezone wherever it is parsed
-			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); //If you need time just put specific format for time like 'HH:mm:ss'
+			Date date = dateFormat.parse(s);
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
 			String dateStr = formatter.format(date);
 			datecreazione.add(dateStr);
 			
+			pixel_img.add((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height")));
 			dimensioni.add((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width")));
 		}
 
-		album.setHeight(altezza);
+		//album.setHeight(altezza);
 		album.setCreated_time(datecreazione);
-		album.setWidth(larghezza);
+		//album.setWidth(larghezza);
 		album.setByte_dimension(dimensioni);
 
 
@@ -81,7 +83,6 @@ public class FacebookService {
 
 			URL url = new URL(fburl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			//useragent
 			BufferedReader read = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = read.readLine();
 
