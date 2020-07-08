@@ -45,10 +45,10 @@ public class FacebookController {
 	}
 	
 	@PostMapping("/fb/filtri")
-	public ResponseEntity<Object> Filtro (@RequestBody JSONObject  body) throws MalformedURLException, IOException, ParseException {
+	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException {
 
 
-		serviziofb.filtro(body, serviziofb.getFacebookAlbums());
+		serviziofb.filtro(body);
 		return new ResponseEntity<>(
 				"Foto filtrate. Per verificare fare richiesta GET a /fb",
 				HttpStatus.OK);

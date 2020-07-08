@@ -103,20 +103,21 @@ public class FacebookService {
 
 	}
 	
-	public ArrayList<FacebookAlbum> filtro (JSONObject body, ArrayList <FacebookAlbum> fblist )  {
+	public void filtro (String body)  {
 		
-		ArrayList <FacebookAlbum>filteredList = new ArrayList <FacebookAlbum>();
-		int width = body.getInt("width");
-		int height = body.getInt("height");
-		String filter = body.getString("filter");
+		JSONObject jbody = new JSONObject(body);
 		
-		filteredList = Filtri.filtroRisoluzione(fblist, filter, width, height);
+		int width =  jbody.getInt("width");
+		int height = jbody.getInt("height");
+		String filter = jbody.getString("filter");
+		
+		myfblist = Filtri.filtroRisoluzione(myfblist, filter, width, height);
 		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
 		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
 			//throw new WrongFilterException("Il filtro inserito non è corretto!");
 		
 		
-		return filteredList;
+		
 	}
 
 
