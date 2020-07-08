@@ -64,6 +64,7 @@ public class FacebookService {
 		album.setCreated_time(datecreazione);
 		//album.setWidth(larghezza);
 		album.setByte_dimension(dimensioni);
+		album.setPixel(pixel_img);
 
 
 		myfblist.add(album);
