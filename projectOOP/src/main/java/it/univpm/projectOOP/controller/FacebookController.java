@@ -17,7 +17,7 @@ import org.springframework.http.ResponseEntity;
 
 import it.univpm.projectOOP.service.*;
 import it.univpm.projectOOP.filters_statistics.*;
-
+import org.json.*;
 @RestController
 public class FacebookController {
 	FacebookService serviziofb = new FacebookService();
@@ -42,6 +42,16 @@ public class FacebookController {
 	@RequestMapping(value = "/fb/statistiche", method = RequestMethod.GET)
 	public ResponseEntity<Object> statistiche() {
 		return new ResponseEntity<Object> (Statistiche.statistiche(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	}
+	
+	@PostMapping("/fb/filtri")
+	public ResponseEntity<Object> Filtro (@RequestBody JSONObject  body) throws MalformedURLException, IOException, ParseException {
+
+
+		serviziofb.filtro(body, serviziofb.getFacebookAlbums());
+		return new ResponseEntity<>(
+				"Foto filtrate. Per verificare fare richiesta GET a /fb",
+				HttpStatus.OK);
 	}
 
 

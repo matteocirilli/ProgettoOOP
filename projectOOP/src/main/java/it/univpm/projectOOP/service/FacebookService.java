@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import it.univpm.projectOOP.filters_statistics.Filtri;
 import it.univpm.projectOOP.model.FacebookAlbum;
 
 import org.json.*;
@@ -101,5 +102,22 @@ public class FacebookService {
 
 
 	}
+	
+	public ArrayList<FacebookAlbum> filtro (JSONObject body, ArrayList <FacebookAlbum> fblist )  {
+		
+		ArrayList <FacebookAlbum>filteredList = new ArrayList <FacebookAlbum>();
+		int width = body.getInt("width");
+		int heigth = body.getInt("height");
+		String filter = body.getString("filter");
+		
+		filteredList = Filtri.filtroRisoluzione(fblist, filter, width, heigth);
+		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
+		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
+			//throw new WrongFilterException("Il filtro inserito non è corretto!");
+		
+		
+		return filteredList;
+	}
+
 
 }
