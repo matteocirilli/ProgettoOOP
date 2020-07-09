@@ -8,7 +8,7 @@ import it.univpm.projectOOP.model.*;
 
 
 public class Statistiche {
-	//Classe Statischiche
+	
 
 	public static LinkedHashMap<String, Float> statistiche (ArrayList<FacebookAlbum> myfblist){
 
@@ -22,7 +22,14 @@ public class Statistiche {
 			int maxByte = 0;
 			float varianza = 0;
 			float devStandard = 0;
+			
 			float somma = 0;
+			
+			ArrayList <Integer> anni = new ArrayList <Integer>();
+			ArrayList <Integer> mesi = new ArrayList <Integer>();
+			ArrayList <Integer> giorni = new ArrayList <Integer>();
+			
+			
 			
 			
 
@@ -54,8 +61,40 @@ public class Statistiche {
 			statMap.put("Varianza Byte album " + i+1, (float) varianza);
 			statMap.put("Deviazione standard Byte album " + i+1, (float) devStandard);		
 			
+			
+			for (int j=0; j<myfblist.get(i).getCreated_time().size(); j++)
+			{
+				
+				String data = myfblist.get(i).getCreated_time().get(j);
+				int anno =Integer.parseInt( data.substring(6));
+				int mese =Integer.parseInt(data.substring(3, 5));
+				int giorno= Integer.parseInt(data.substring(0,2));
+				anni.add(anno);
+				mesi.add(mese);	
+				giorni.add(giorno);
+			}
+			
+			int minAnno = anni.get(0);
+			int minMese = mesi.get(0);
+			int minGiorno = giorni.get(0);
+			int maxAnno = 0;
+			int maxMese = 0;
+			int maxGiorno = 0;
+			
+			for (int j=0; j<anni.size(); j++) {
+				
+				
+				
+				
+				
+				
+			}
+			
 						
 		}
+		
+		
+		
 		
 		return statMap;
 		
