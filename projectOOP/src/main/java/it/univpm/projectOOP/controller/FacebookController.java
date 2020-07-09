@@ -40,9 +40,15 @@ public class FacebookController {
 
 
 	
-	@RequestMapping(value = "/fb/statistiche", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistiche() throws EmptyAlbumListException{
-		return new ResponseEntity<Object> (Statistiche.statistiche(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	@RequestMapping(value = "/fb/statistiche/dimensionali", method = RequestMethod.GET)
+	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException{
+		return new ResponseEntity<Object> (Statistiche.statistichedim(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	}
+	
+
+	@RequestMapping(value = "/fb/statistiche/temporali", method = RequestMethod.GET)
+	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException{
+		return new ResponseEntity<Object> (Statistiche.statistichetemp(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
 	
 	@PostMapping("/fb/filtri")
