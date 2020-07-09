@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
+import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.Filtri;
 import it.univpm.projectOOP.model.FacebookAlbum;
 
@@ -24,10 +26,14 @@ public class FacebookService {
 	private ArrayList<FacebookAlbum> myfblist = new ArrayList<FacebookAlbum>();
 
 
-	public ArrayList<FacebookAlbum> getFacebookAlbums () {
+	public ArrayList<FacebookAlbum> getFacebookAlbums () throws EmptyAlbumListException {
+		
+		if(myfblist.isEmpty()) 
+			throw new EmptyAlbumListException("La lista di Album è vuota");
+		
 		return myfblist;
 	}
-	public void ParseJson (String jsonString) throws ParseException {
+	public void ParseJson (String jsonString) throws ParseException{
 
 
 		FacebookAlbum album = new FacebookAlbum();	
@@ -50,16 +56,23 @@ public class FacebookService {
 			//altezza.add(data.getJSONObject(i).getInt("height"));
 			//larghezza.add(data.getJSONObject(i).getInt("width"));
 			String s = data.getJSONObject(i).getString("created_time");
-			
+
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0000'");
 			Date date = dateFormat.parse(s);
 			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
 			String dateStr = formatter.format(date);
 			datecreazione.add(dateStr);
-			
+
 			pixel_img.add((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height")));
 			dimensioni.add((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width")));
 		}
+
+
+
+
+
+
+
 
 		//album.setHeight(altezza);
 		album.setCreated_time(datecreazione);
@@ -79,7 +92,7 @@ public class FacebookService {
 	public String getFromFacebook (String fburl) {
 
 		String response = "";
-	
+
 
 		try {
 
@@ -102,22 +115,22 @@ public class FacebookService {
 
 
 	}
-	
-	public void filtro (String body)  {
-		
+
+	public void filtro (String body) throws WrongFilterException  {
+
 		JSONObject jbody = new JSONObject(body);
-		
+
 		int width =  jbody.getInt("width");
 		int height = jbody.getInt("height");
 		String filter = jbody.getString("filter");
-		
+
 		myfblist = Filtri.filtroRisoluzione(myfblist, filter, width, height);
 		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
 		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
-			//throw new WrongFilterException("Il filtro inserito non è corretto!");
-		
-		
-		
+		//throw new WrongFilterException("Il filtro inserito non è corretto!");
+
+
+
 	}
 
 

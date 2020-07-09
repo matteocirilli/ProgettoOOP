@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 import java.text.ParseException;
 import java.net.MalformedURLException;
 
@@ -16,8 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import it.univpm.projectOOP.service.*;
+import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
+import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.*;
-import org.json.*;
+
 @RestController
 public class FacebookController {
 	FacebookService serviziofb = new FacebookService();
@@ -32,7 +33,7 @@ public class FacebookController {
 	}
 
 	@RequestMapping(value = "/fb", method = RequestMethod.GET)
-	public ResponseEntity<Object> getFbAlbums()  {
+	public ResponseEntity<Object> getFbAlbums()  throws EmptyAlbumListException{
 		return new ResponseEntity<>(serviziofb.getFacebookAlbums(), HttpStatus.OK);
 	}
 	
@@ -40,12 +41,12 @@ public class FacebookController {
 
 	
 	@RequestMapping(value = "/fb/statistiche", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistiche() {
+	public ResponseEntity<Object> statistiche() throws EmptyAlbumListException{
 		return new ResponseEntity<Object> (Statistiche.statistiche(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
 	
 	@PostMapping("/fb/filtri")
-	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException {
+	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
 
 		serviziofb.filtro(body);
