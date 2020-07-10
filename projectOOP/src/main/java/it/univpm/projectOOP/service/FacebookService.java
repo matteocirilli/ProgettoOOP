@@ -17,6 +17,7 @@ import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.Filtri;
 import it.univpm.projectOOP.model.FacebookAlbum;
+import it.univpm.projectOOP.model.FbAlbumPhoto;
 
 import org.json.*;
 
@@ -40,10 +41,11 @@ public class FacebookService {
 
 		//ArrayList<Integer> altezza = new  ArrayList<Integer>();
 		//ArrayList<Integer> larghezza = new ArrayList <Integer>();
-		ArrayList<String> datecreazione = new ArrayList <String>();
-		ArrayList<Integer> dimensioni = new ArrayList <Integer>();
-		ArrayList<String> pixel_img = new ArrayList <String>();
-
+		//ArrayList<String> datecreazione = new ArrayList <String>();
+		//ArrayList<Integer> dimensioni = new ArrayList <Integer>();
+		//ArrayList<String> pixel_img = new ArrayList <String>();
+		
+		ArrayList <FbAlbumPhoto> photo = new ArrayList <FbAlbumPhoto>();
 
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
@@ -53,32 +55,35 @@ public class FacebookService {
 
 		for(int i=0;i<data.length();i++)
 		{
-			//altezza.add(data.getJSONObject(i).getInt("height"));
-			//larghezza.add(data.getJSONObject(i).getInt("width"));
+			FbAlbumPhoto foto = new FbAlbumPhoto(); 
+			foto.setHeight((data.getJSONObject(i).getInt("height")));
+			foto.setWidth((data.getJSONObject(i).getInt("width")));
 			String s = data.getJSONObject(i).getString("created_time");
 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0000'");
 			Date date = dateFormat.parse(s);
 			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
 			String dateStr = formatter.format(date);
-			datecreazione.add(dateStr);
+			foto.setCreated_time(dateStr);
 
-			pixel_img.add((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height")));
-			dimensioni.add((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width")));
+			foto.setPixel(((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height"))));
+			foto.setByte_dimension(((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width"))));
+			photo.add(foto);
+			
 		}
 
 
-
+		album.setAlbum(photo);
 
 
 
 
 
 		//album.setHeight(altezza);
-		album.setCreated_time(datecreazione);
+		//album.setCreated_time(datecreazione);
 		//album.setWidth(larghezza);
-		album.setByte_dimension(dimensioni);
-		album.setPixel(pixel_img);
+		//album.setByte_dimension(dimensioni);
+		//album.setPixel(pixel_img);
 
 
 		myfblist.add(album);
@@ -122,9 +127,11 @@ public class FacebookService {
 
 		int width =  jbody.getInt("width");
 		int height = jbody.getInt("height");
+		int width2 =  jbody.getInt("width2");
+		int height2 = jbody.getInt("height2");
 		String filter = jbody.getString("filter");
 
-		myfblist = Filtri.filtroRisoluzione(myfblist, filter, width, height);
+		myfblist = Filtri.filtroLarghezza(myfblist, filter, width, height, width2, height2);
 		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
 		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
 		//throw new WrongFilterException("Il filtro inserito non è corretto!");
