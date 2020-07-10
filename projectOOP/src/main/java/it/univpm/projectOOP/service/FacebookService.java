@@ -39,11 +39,6 @@ public class FacebookService {
 
 		FacebookAlbum album = new FacebookAlbum();	
 
-		//ArrayList<Integer> altezza = new  ArrayList<Integer>();
-		//ArrayList<Integer> larghezza = new ArrayList <Integer>();
-		//ArrayList<String> datecreazione = new ArrayList <String>();
-		//ArrayList<Integer> dimensioni = new ArrayList <Integer>();
-		//ArrayList<String> pixel_img = new ArrayList <String>();
 		
 		ArrayList <FbAlbumPhoto> photo = new ArrayList <FbAlbumPhoto>();
 
@@ -78,12 +73,6 @@ public class FacebookService {
 
 
 
-
-		//album.setHeight(altezza);
-		//album.setCreated_time(datecreazione);
-		//album.setWidth(larghezza);
-		//album.setByte_dimension(dimensioni);
-		//album.setPixel(pixel_img);
 
 
 		myfblist.add(album);
@@ -125,16 +114,46 @@ public class FacebookService {
 
 		JSONObject jbody = new JSONObject(body);
 
-		int width =  jbody.getInt("width");
-		int height = jbody.getInt("height");
-		int width2 =  jbody.getInt("width2");
-		int height2 = jbody.getInt("height2");
+		
 		String filter = jbody.getString("filter");
+		String filterType = jbody.getString("filterType");
+		
+		
+		if (filterType=="filterWidth") {
+			int width =  jbody.getInt("width");
+			int width2 =  jbody.getInt("width2");
+			myfblist = Filtri.filtroLarghezza(myfblist, filter, width, width2);
+		}
+		
+		if (filterType=="filterHeight") {
 
-		myfblist = Filtri.filtroLarghezza(myfblist, filter, width, height, width2, height2);
-		/**Eccezione che parte dal momento in cui i filtri inseriti non sono corretti*/
-		//if (!filterFiled.equals("likes") && !filterFiled.equals("retweets") && !filterFiled.equals("time") && !filterFiled.equals("data") ) 
-		//throw new WrongFilterException("Il filtro inserito non è corretto!");
+			int height = jbody.getInt("height");
+			int height2 = jbody.getInt("height2");
+			myfblist = Filtri.filtroAltezza(myfblist, filter,  height, height2);
+		
+		}
+		if (filterType=="filterWidthDim") {
+			
+			int width =  jbody.getInt("width");
+			int width2 =  jbody.getInt("width2");
+			int byte_dimension = jbody.getInt("byte_dimension");
+			int byte_dimension2 = jbody.getInt("byte_dimension2");
+			
+			myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width,  width2, byte_dimension, byte_dimension2);
+		
+		}
+		if (filterType=="filterHeightDim") {
+			
+			int height = jbody.getInt("height");
+			int height2 = jbody.getInt("height2");
+			int byte_dimension = jbody.getInt("byte_dimension");
+			int byte_dimension2 = jbody.getInt("byte_dimension2");
+			
+			
+			myfblist = Filtri.filtroAltezzaDim(myfblist, filter,  height,  height2,  byte_dimension, byte_dimension2);
+		}
+		
+		
 
 
 

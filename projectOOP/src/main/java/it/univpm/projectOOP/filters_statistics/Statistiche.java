@@ -93,6 +93,20 @@ public class Statistiche {
 				giorni.add(giorno);
 			}
 
+			int [] cadenzamesi = new int [12];
+			for (int k=0; k<mesi.size(); k++)
+			{
+				cadenzamesi[(mesi.get(k))-1]++;
+			}
+
+
+
+			int [] cadenzagiorni = new int [31];
+			for (int k=0; k<giorni.size(); k++)
+			{
+				cadenzagiorni[(giorni.get(k))-1]++;
+			}
+
 			int minAnno = anni.get(0);
 			int minMese = mesi.get(0);
 			int minGiorno = giorni.get(0);
@@ -147,6 +161,16 @@ public class Statistiche {
 			int c = i+1;
 			statMap.put("Data foto più vecchia album " + c, minGiorno + "-" + minMese + "-" + minAnno);
 			statMap.put("Data foto più recente album " + c, maxGiorno + "-" + maxMese + "-" + maxAnno);
+			
+			for (int k=0; k<cadenzamesi.length;k++) {
+				if (cadenzamesi[k]!=0)
+					statMap.put("Cadenza foto nel mese numero " + (k+1) + ": ", cadenzamesi[k]+"");
+			}
+			
+			for (int k=0; k<cadenzagiorni.length;k++) {
+				if (cadenzagiorni[k]!=0)
+					statMap.put("Cadenza foto nel giorno numero " + (k+1) + ": ", cadenzagiorni[k]+"");
+			}
 
 
 		}
