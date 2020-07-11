@@ -62,7 +62,7 @@ public class Filtri {
 					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
 				}
 				if (filter.equals("$bt") &&  myfblist.get(i).getAlbum().get(j).getWidth()>= width && 
-						myfblist.get(i).getAlbum().get(j).getWidth()>= width2 ) {
+						myfblist.get(i).getAlbum().get(j).getWidth()<= width2 ) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
@@ -73,15 +73,15 @@ public class Filtri {
 
 
 				}
-				if (fotofilt != null)
+				
 					photofilt.add(fotofilt);
 
 			}
-			if (photofilt!= null)
-			{
+			
+			
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
-			}
+			
 
 		}
 		return filteredList;
@@ -140,7 +140,7 @@ public class Filtri {
 					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
 				}
 				if (filter.equals("$bt") &&  myfblist.get(i).getAlbum().get(j).getHeight()>= height && 
-						myfblist.get(i).getAlbum().get(j).getHeight()>= height2 ) {
+						myfblist.get(i).getAlbum().get(j).getHeight()<=height2 ) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());

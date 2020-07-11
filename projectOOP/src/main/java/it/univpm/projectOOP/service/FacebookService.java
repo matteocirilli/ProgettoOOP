@@ -30,7 +30,7 @@ public class FacebookService {
 	public ArrayList<FacebookAlbum> getFacebookAlbums () throws EmptyAlbumListException {
 		
 		if(myfblist.isEmpty()) 
-			throw new EmptyAlbumListException("La lista di Album è vuota");
+			throw new EmptyAlbumListException("La lista di Album di Facebook è vuota");
 		
 		return myfblist;
 	}
@@ -117,6 +117,9 @@ public class FacebookService {
 		
 		String filter = jbody.getString("filter");
 		String filterType = jbody.getString("filterType");
+		
+		//if(filterType != "filterWidth" && filterType != "filterHeight" && filterType != "filterWidthDim" && filterType != "filterHeightDim")
+			//throw new WrongFilterException("Non si può filtrare con questo parametro");
 		
 		
 		if (filterType=="filterWidth") {
