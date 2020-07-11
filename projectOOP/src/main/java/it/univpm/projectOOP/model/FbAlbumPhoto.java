@@ -4,11 +4,13 @@ package it.univpm.projectOOP.model;
 
 public class FbAlbumPhoto {
 	
-	private String pixel;
-	private int height;
+	
 	private int width;
-	private String created_time;
+	private int height;
+	private String pixel;
 	private int byte_dimension;
+	private String created_time;
+	
 	/**
 	 * @return the pixel
 	 */

@@ -16,8 +16,8 @@ public class FacebookAlbum {
 	/**
 	 * @param album the album to set
 	 */
-	public void setAlbum(ArrayList<FbAlbumPhoto> album) {
-		Album = album;
+	public void setAlbum(ArrayList<FbAlbumPhoto> albumciao) {
+		Album = albumciao;
 	}
 	
 	

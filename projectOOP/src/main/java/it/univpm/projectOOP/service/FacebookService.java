@@ -118,42 +118,65 @@ public class FacebookService {
 		String filter = jbody.getString("filter");
 		String filterType = jbody.getString("filterType");
 		
-		//if(filterType != "filterWidth" && filterType != "filterHeight" && filterType != "filterWidthDim" && filterType != "filterHeightDim")
-			//throw new WrongFilterException("Non si può filtrare con questo parametro");
+		if (!filterType.equals("filterWidth") && !filterType.equals("filterHeight") && !filterType.equals("filterWidthDim") && !filterType.equals("filterHeightDim") )
+			throw new WrongFilterException("Il filtro inserito non è corretto");
 		
 		
-		if (filterType=="filterWidth") {
+		if (filterType.equals("filterWidth")) {
 			int width =  jbody.getInt("width");
-			int width2 =  jbody.getInt("width2");
-			myfblist = Filtri.filtroLarghezza(myfblist, filter, width, width2);
+			if (filter.equals("$bt")) {
+				int width2 =  jbody.getInt("width2");
+				myfblist = Filtri.filtroLarghezza(myfblist, filter, width, width2);
+			}
+			else 
+				myfblist = Filtri.filtroLarghezza(myfblist, filter, width, 0);
 		}
 		
-		if (filterType=="filterHeight") {
+		if (filterType.equals("filterHeight")) {
 
 			int height = jbody.getInt("height");
-			int height2 = jbody.getInt("height2");
-			myfblist = Filtri.filtroAltezza(myfblist, filter,  height, height2);
+			if (filter.equals("$bt")) {
+				int height2 =  jbody.getInt("height2");
+				myfblist = Filtri.filtroAltezza(myfblist, filter, height, height2);
+			}
+			else 
+				myfblist = Filtri.filtroAltezza(myfblist, filter, height, 0);
+			}
 		
-		}
-		if (filterType=="filterWidthDim") {
+		
+		if (filterType.equals("filterWidthDim")) {
 			
 			int width =  jbody.getInt("width");
-			int width2 =  jbody.getInt("width2");
 			int byte_dimension = jbody.getInt("byte_dimension");
-			int byte_dimension2 = jbody.getInt("byte_dimension2");
+			if (filter.equals("$bt")) {
+				int width2 =  jbody.getInt("width2");
+				int byte_dimension2 = jbody.getInt("byte_dimension2");
+				myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, byte_dimension, byte_dimension2);
+			}
+			else 
+				myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, byte_dimension, 0);
 			
-			myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width,  width2, byte_dimension, byte_dimension2);
+			
+			
 		
 		}
-		if (filterType=="filterHeightDim") {
+		if (filterType.equals("filterHeightDim")) {
 			
 			int height = jbody.getInt("height");
-			int height2 = jbody.getInt("height2");
+			
 			int byte_dimension = jbody.getInt("byte_dimension");
-			int byte_dimension2 = jbody.getInt("byte_dimension2");
+			if (filter.equals("$bt")) {
+				int height2 =  jbody.getInt("height2");
+				int byte_dimension2 = jbody.getInt("byte_dimension2");
+				myfblist = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, byte_dimension, byte_dimension2);
+			}
+			else 
+				myfblist = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, byte_dimension, 0);
+			
+	
 			
 			
-			myfblist = Filtri.filtroAltezzaDim(myfblist, filter,  height,  height2,  byte_dimension, byte_dimension2);
+			
 		}
 		
 		

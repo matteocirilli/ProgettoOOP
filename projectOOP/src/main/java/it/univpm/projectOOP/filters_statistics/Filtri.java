@@ -74,13 +74,17 @@ public class Filtri {
 
 				}
 				
+				if (fotofilt != null)
 					photofilt.add(fotofilt);
 
 			}
 			
 			
+			if (photofilt!= null)
+			{
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
+			}
 			
 
 		}

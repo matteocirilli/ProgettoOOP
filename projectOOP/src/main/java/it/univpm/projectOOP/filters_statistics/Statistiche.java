@@ -1,5 +1,6 @@
 package it.univpm.projectOOP.filters_statistics;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -10,9 +11,9 @@ import it.univpm.projectOOP.model.*;
 public class Statistiche {
 
 
-	public static LinkedHashMap<String, Float> statistichedim (ArrayList<FacebookAlbum> myfblist){
+	public static LinkedHashMap<String, String> statistichedim (ArrayList<FacebookAlbum> myfblist){
 
-		LinkedHashMap<String, Float> statMap = new LinkedHashMap<String, Float>();
+		LinkedHashMap<String, String> statMap = new LinkedHashMap<String, String>();
 
 
 		for (int i = 0; i < myfblist.size(); i++) {
@@ -52,13 +53,15 @@ public class Statistiche {
 			}
 
 			devStandard = (float) Math.sqrt(varianza);	
-			int c = i+1;
+			DecimalFormat df = new DecimalFormat("#.##");
+			
+		
 
-			statMap.put("Minimo Byte album " + c, (float) minByte);
-			statMap.put("Massimo Byte album " + c, (float) maxByte);
-			statMap.put("Media Byte album " + c, (float) mediaByte);
-			statMap.put("Varianza Byte album " + c, (float) varianza);
-			statMap.put("Deviazione standard Byte album " + c, (float) devStandard);		
+			statMap.put("Minimo Byte album " +  (i+1), df.format(minByte));
+			statMap.put("Massimo Byte album " +  (i+1), df.format(maxByte));
+			statMap.put("Media Byte album " +  (i+1), df.format(mediaByte));
+			statMap.put("Varianza Byte album " +  (i+1), df.format(varianza));
+			statMap.put("Deviazione standard Byte album " +  (i+1), df.format(devStandard));		
 
 
 		}
