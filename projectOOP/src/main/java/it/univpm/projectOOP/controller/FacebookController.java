@@ -19,9 +19,25 @@ import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FacebookController.
+ */
 @RestController
 public class FacebookController {
+	
+	/** The serviziofb. */
 	FacebookService serviziofb = new FacebookService();
+	
+	/**
+	 * Foto album.
+	 *
+	 * @param url the url
+	 * @return the response entity
+	 * @throws MalformedURLException the malformed URL exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws ParseException the parse exception
+	 */
 	@PostMapping("/fb")
 	public ResponseEntity<Object> FotoAlbum(@RequestBody String url) throws MalformedURLException, IOException, ParseException {
 
@@ -32,30 +48,58 @@ public class FacebookController {
 				HttpStatus.OK);
 	}
 
+	/**
+	 * Gets the fb albums.
+	 *
+	 * @return the fb albums
+	 * @throws EmptyAlbumListException the empty album list exception
+	 */
 	@RequestMapping(value = "/fb", method = RequestMethod.GET)
 	public ResponseEntity<Object> getFbAlbums()  throws EmptyAlbumListException{
 		return new ResponseEntity<>(serviziofb.getFacebookAlbums(), HttpStatus.OK);
 	}
-	
 
 
-	
+
+
+	/**
+	 * Statistichedimensionali.
+	 *
+	 * @return the response entity
+	 * @throws EmptyAlbumListException the empty album list exception
+	 */
 	@RequestMapping(value = "/fb/statistiche/dimensionali", method = RequestMethod.GET)
 	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException{
 		return new ResponseEntity<Object> (Statistiche.statistichedim(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
-	
 
+
+	/**
+	 * Statistichetemporali.
+	 *
+	 * @return the response entity
+	 * @throws EmptyAlbumListException the empty album list exception
+	 */
 	@RequestMapping(value = "/fb/statistiche/temporali", method = RequestMethod.GET)
 	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException{
 		return new ResponseEntity<Object> (Statistiche.statistichetemp(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
-	
+
+	/**
+	 * Filtro.
+	 *
+	 * @param body the body
+	 * @return the response entity
+	 * @throws MalformedURLException the malformed URL exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws ParseException the parse exception
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	@PostMapping("/fb/filtri")
 	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
 
-		
+
 		return new ResponseEntity<>(
 				serviziofb.filtro(body), HttpStatus.OK);
 	}

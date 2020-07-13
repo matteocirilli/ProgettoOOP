@@ -6,9 +6,23 @@ import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.model.FacebookAlbum;
 import it.univpm.projectOOP.model.FbAlbumPhoto;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Filtri.
+ */
 public class Filtri {
 
 
+	/**
+	 * Filtro larghezza.
+	 *
+	 * @param myfblist the myfblist
+	 * @param filter the filter
+	 * @param width the width
+	 * @param width2 the width 2
+	 * @return the array list
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezza (ArrayList<FacebookAlbum> myfblist, String filter, int width, int
 			width2) throws WrongFilterException  {
 
@@ -23,7 +37,7 @@ public class Filtri {
 			throw new WrongFilterException("Il filtro inserito non è corretto");
 
 		ArrayList <FbAlbumPhoto> photofilt = new ArrayList <FbAlbumPhoto>();
-		
+
 		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 
@@ -75,7 +89,7 @@ public class Filtri {
 
 
 				}
-				
+
 				if (!fotofilt.equals(NotPhoto))
 					photofilt.add(fotofilt);
 
@@ -85,14 +99,24 @@ public class Filtri {
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
 			}
-			
+
 
 		}
 		return filteredList;
 	}
 
+	/**
+	 * Filtro altezza.
+	 *
+	 * @param myfblist the myfblist
+	 * @param filter the filter
+	 * @param height the height
+	 * @param height2 the height 2
+	 * @return the array list
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	public static ArrayList<FacebookAlbum> filtroAltezza (ArrayList<FacebookAlbum> myfblist, String filter,  int height, 
-		 int height2) throws WrongFilterException  {
+			int height2) throws WrongFilterException  {
 
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
@@ -171,6 +195,18 @@ public class Filtri {
 	}
 
 
+	/**
+	 * Filtro larghezza dim.
+	 *
+	 * @param myfblist the myfblist
+	 * @param filter the filter
+	 * @param width the width
+	 * @param width2 the width 2
+	 * @param byte_dimension the byte dimension
+	 * @param byte_dimension2 the byte dimension 2
+	 * @return the array list
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezzaDim (ArrayList<FacebookAlbum> myfblist, String filter, int width,  int
 			width2,  int byte_dimension, int byte_dimension2) throws WrongFilterException  {
 
@@ -179,7 +215,7 @@ public class Filtri {
 
 
 		FacebookAlbum albumfilt = new FacebookAlbum();
-		
+
 		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 
@@ -258,8 +294,20 @@ public class Filtri {
 	}
 
 
+	/**
+	 * Filtro altezza dim.
+	 *
+	 * @param myfblist the myfblist
+	 * @param filter the filter
+	 * @param height the height
+	 * @param height2 the height 2
+	 * @param byte_dimension the byte dimension
+	 * @param byte_dimension2 the byte dimension 2
+	 * @return the array list
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	public static ArrayList<FacebookAlbum> filtroAltezzaDim (ArrayList<FacebookAlbum> myfblist, String filter,  int height, 
-		 int height2, int byte_dimension, int byte_dimension2) throws WrongFilterException  {
+			int height2, int byte_dimension, int byte_dimension2) throws WrongFilterException  {
 
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();

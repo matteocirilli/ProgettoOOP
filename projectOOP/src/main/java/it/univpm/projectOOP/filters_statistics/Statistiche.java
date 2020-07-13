@@ -8,9 +8,19 @@ import java.util.LinkedHashMap;
 import it.univpm.projectOOP.model.*;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Statistiche.
+ */
 public class Statistiche {
 
 
+	/**
+	 * Statistichedim.
+	 *
+	 * @param myfblist the myfblist
+	 * @return the linked hash map
+	 */
 	public static LinkedHashMap<String, String> statistichedim (ArrayList<FacebookAlbum> myfblist){
 
 		LinkedHashMap<String, String> statMap = new LinkedHashMap<String, String>();
@@ -54,8 +64,8 @@ public class Statistiche {
 
 			devStandard = (float) Math.sqrt(varianza);	
 			DecimalFormat df = new DecimalFormat("#.##");
-			
-		
+
+
 
 			statMap.put("Minimo Byte album " +  (i+1), df.format(minByte));
 			statMap.put("Massimo Byte album " +  (i+1), df.format(maxByte));
@@ -71,6 +81,12 @@ public class Statistiche {
 
 	}
 
+	/**
+	 * Statistichetemp.
+	 *
+	 * @param myfblist the myfblist
+	 * @return the linked hash map
+	 */
 	public static LinkedHashMap <String,String> statistichetemp (ArrayList<FacebookAlbum> myfblist) {
 
 
@@ -164,12 +180,12 @@ public class Statistiche {
 			int c = i+1;
 			statMap.put("Data foto più vecchia album " + c, minGiorno + "-" + minMese + "-" + minAnno);
 			statMap.put("Data foto più recente album " + c, maxGiorno + "-" + maxMese + "-" + maxAnno);
-			
+
 			for (int k=0; k<cadenzamesi.length;k++) {
 				if (cadenzamesi[k]!=0)
 					statMap.put("Cadenza foto nel mese numero " + (k+1) + ": ", cadenzamesi[k]+"");
 			}
-			
+
 			for (int k=0; k<cadenzagiorni.length;k++) {
 				if (cadenzagiorni[k]!=0)
 					statMap.put("Cadenza foto nel giorno numero " + (k+1) + ": ", cadenzagiorni[k]+"");

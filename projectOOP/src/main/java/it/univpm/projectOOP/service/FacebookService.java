@@ -23,23 +23,42 @@ import org.json.*;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FacebookService.
+ */
 public class FacebookService {
+	
+	/** The myfblist. */
 	private ArrayList<FacebookAlbum> myfblist = new ArrayList<FacebookAlbum>();
 
 
+	/**
+	 * Gets the facebook albums.
+	 *
+	 * @return the facebook albums
+	 * @throws EmptyAlbumListException the empty album list exception
+	 */
 	public ArrayList<FacebookAlbum> getFacebookAlbums () throws EmptyAlbumListException {
-		
+
 		if(myfblist.isEmpty()) 
 			throw new EmptyAlbumListException("La lista di Album di Facebook è vuota");
-		
+
 		return myfblist;
 	}
+	
+	/**
+	 * Parses the json.
+	 *
+	 * @param jsonString the json string
+	 * @throws ParseException the parse exception
+	 */
 	public void ParseJson (String jsonString) throws ParseException{
 
 
 		FacebookAlbum album = new FacebookAlbum();	
 
-		
+
 		ArrayList <FbAlbumPhoto> photo = new ArrayList <FbAlbumPhoto>();
 
 		JSONObject obj = new JSONObject(jsonString);
@@ -64,7 +83,7 @@ public class FacebookService {
 			foto.setPixel(((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height"))));
 			foto.setByte_dimension(((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width"))));
 			photo.add(foto);
-			
+
 		}
 
 
@@ -83,6 +102,12 @@ public class FacebookService {
 	}
 
 
+	/**
+	 * Gets the from facebook.
+	 *
+	 * @param fburl the fburl
+	 * @return the from facebook
+	 */
 	public String getFromFacebook (String fburl) {
 
 		String response = "";
@@ -110,19 +135,26 @@ public class FacebookService {
 
 	}
 
+	/**
+	 * Filtro.
+	 *
+	 * @param body the body
+	 * @return the array list
+	 * @throws WrongFilterException the wrong filter exception
+	 */
 	public ArrayList<FacebookAlbum> filtro (String body) throws WrongFilterException  {
-		
+
 		ArrayList <FacebookAlbum> listafiltrata = new ArrayList <FacebookAlbum>();
 		JSONObject jbody = new JSONObject(body);
 
-		
+
 		String filter = jbody.getString("filter");
 		String filterType = jbody.getString("filterType");
-		
+
 		if (!filterType.equals("filterWidth") && !filterType.equals("filterHeight") && !filterType.equals("filterWidthDim") && !filterType.equals("filterHeightDim") )
 			throw new WrongFilterException("Il filtro inserito non è corretto");
-		
-		
+
+
 		if (filterType.equals("filterWidth")) {
 			int width =  jbody.getInt("width");
 			if (filter.equals("$bt")) {
@@ -132,7 +164,7 @@ public class FacebookService {
 			else 
 				listafiltrata = Filtri.filtroLarghezza(myfblist, filter, width, 0);
 		}
-		
+
 		if (filterType.equals("filterHeight")) {
 
 			int height = jbody.getInt("height");
@@ -142,11 +174,11 @@ public class FacebookService {
 			}
 			else 
 				listafiltrata = Filtri.filtroAltezza(myfblist, filter, height, 0);
-			}
-		
-		
+		}
+
+
 		if (filterType.equals("filterWidthDim")) {
-			
+
 			int width =  jbody.getInt("width");
 			int byte_dimension = jbody.getInt("byte_dimension");
 			if (filter.equals("$bt")) {
@@ -156,15 +188,15 @@ public class FacebookService {
 			}
 			else 
 				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, byte_dimension, 0);
-			
-			
-			
-		
+
+
+
+
 		}
 		if (filterType.equals("filterHeightDim")) {
-			
+
 			int height = jbody.getInt("height");
-			
+
 			int byte_dimension = jbody.getInt("byte_dimension");
 			if (filter.equals("$bt")) {
 				int height2 =  jbody.getInt("height2");
@@ -173,14 +205,14 @@ public class FacebookService {
 			}
 			else 
 				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, byte_dimension, 0);
-			
-	
-			
-			
-			
+
+
+
+
+
 		}
-		
-		
+
+
 		return listafiltrata;
 
 
