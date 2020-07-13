@@ -23,6 +23,8 @@ public class Filtri {
 			throw new WrongFilterException("Il filtro inserito non è corretto");
 
 		ArrayList <FbAlbumPhoto> photofilt = new ArrayList <FbAlbumPhoto>();
+		
+		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 
 		for (int i = 0; i < myfblist.size(); i++) {		
@@ -74,13 +76,11 @@ public class Filtri {
 
 				}
 				
-				if (fotofilt != null)
+				if (!fotofilt.equals(NotPhoto))
 					photofilt.add(fotofilt);
 
 			}
-			
-			
-			if (photofilt!= null)
+			if (!photofilt.equals(null))
 			{
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
@@ -100,6 +100,7 @@ public class Filtri {
 
 		FacebookAlbum albumfilt = new FacebookAlbum();
 
+		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte") && !filter.equals("$bt"))
 			throw new WrongFilterException("Il filtro inserito non è corretto");
@@ -155,11 +156,11 @@ public class Filtri {
 
 
 				}
-				if (fotofilt != null)
+				if (!fotofilt.equals(NotPhoto))
 					photofilt.add(fotofilt);
 
 			}
-			if (photofilt!= null)
+			if (!photofilt.equals(null))
 			{
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
@@ -178,6 +179,8 @@ public class Filtri {
 
 
 		FacebookAlbum albumfilt = new FacebookAlbum();
+		
+		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte") && !filter.equals("$bt"))
@@ -240,11 +243,11 @@ public class Filtri {
 
 
 				}
-				if (fotofilt != null)
+				if (!fotofilt.equals(NotPhoto))
 					photofilt.add(fotofilt);
 
 			}
-			if (photofilt!= null)
+			if (!photofilt.equals(null))
 			{
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);
@@ -263,6 +266,7 @@ public class Filtri {
 
 
 		FacebookAlbum albumfilt = new FacebookAlbum();
+		FbAlbumPhoto NotPhoto = new FbAlbumPhoto();
 
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte") && !filter.equals("$bt"))
@@ -324,11 +328,11 @@ public class Filtri {
 
 
 				}
-				if (fotofilt != null)
+				if (!fotofilt.equals(NotPhoto))
 					photofilt.add(fotofilt);
 
 			}
-			if (photofilt!= null)
+			if (!photofilt.equals(null))
 			{
 				albumfilt.setAlbum(photofilt);
 				filteredList.add(albumfilt);

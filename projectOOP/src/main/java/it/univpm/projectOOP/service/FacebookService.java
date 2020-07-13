@@ -110,8 +110,9 @@ public class FacebookService {
 
 	}
 
-	public void filtro (String body) throws WrongFilterException  {
-
+	public ArrayList<FacebookAlbum> filtro (String body) throws WrongFilterException  {
+		
+		ArrayList <FacebookAlbum> listafiltrata = new ArrayList <FacebookAlbum>();
 		JSONObject jbody = new JSONObject(body);
 
 		
@@ -126,10 +127,10 @@ public class FacebookService {
 			int width =  jbody.getInt("width");
 			if (filter.equals("$bt")) {
 				int width2 =  jbody.getInt("width2");
-				myfblist = Filtri.filtroLarghezza(myfblist, filter, width, width2);
+				listafiltrata = Filtri.filtroLarghezza(myfblist, filter, width, width2);
 			}
 			else 
-				myfblist = Filtri.filtroLarghezza(myfblist, filter, width, 0);
+				listafiltrata = Filtri.filtroLarghezza(myfblist, filter, width, 0);
 		}
 		
 		if (filterType.equals("filterHeight")) {
@@ -137,10 +138,10 @@ public class FacebookService {
 			int height = jbody.getInt("height");
 			if (filter.equals("$bt")) {
 				int height2 =  jbody.getInt("height2");
-				myfblist = Filtri.filtroAltezza(myfblist, filter, height, height2);
+				listafiltrata = Filtri.filtroAltezza(myfblist, filter, height, height2);
 			}
 			else 
-				myfblist = Filtri.filtroAltezza(myfblist, filter, height, 0);
+				listafiltrata = Filtri.filtroAltezza(myfblist, filter, height, 0);
 			}
 		
 		
@@ -151,10 +152,10 @@ public class FacebookService {
 			if (filter.equals("$bt")) {
 				int width2 =  jbody.getInt("width2");
 				int byte_dimension2 = jbody.getInt("byte_dimension2");
-				myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, byte_dimension, byte_dimension2);
+				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, byte_dimension, byte_dimension2);
 			}
 			else 
-				myfblist = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, byte_dimension, 0);
+				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, byte_dimension, 0);
 			
 			
 			
@@ -168,10 +169,10 @@ public class FacebookService {
 			if (filter.equals("$bt")) {
 				int height2 =  jbody.getInt("height2");
 				int byte_dimension2 = jbody.getInt("byte_dimension2");
-				myfblist = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, byte_dimension, byte_dimension2);
+				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, byte_dimension, byte_dimension2);
 			}
 			else 
-				myfblist = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, byte_dimension, 0);
+				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, byte_dimension, 0);
 			
 	
 			
@@ -180,7 +181,7 @@ public class FacebookService {
 		}
 		
 		
-
+		return listafiltrata;
 
 
 	}

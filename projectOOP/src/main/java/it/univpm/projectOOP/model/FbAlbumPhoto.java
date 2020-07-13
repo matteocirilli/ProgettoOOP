@@ -11,6 +11,35 @@ public class FbAlbumPhoto {
 	private int byte_dimension;
 	private String created_time;
 	
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FbAlbumPhoto other = (FbAlbumPhoto) obj;
+		if (byte_dimension != other.byte_dimension)
+			return false;
+		if (created_time == null) {
+			if (other.created_time != null)
+				return false;
+		} else if (!created_time.equals(other.created_time))
+			return false;
+		if (height != other.height)
+			return false;
+		if (pixel == null) {
+			if (other.pixel != null)
+				return false;
+		} else if (!pixel.equals(other.pixel))
+			return false;
+		if (width != other.width)
+			return false;
+		return true;
+	}
 	/**
 	 * @return the pixel
 	 */

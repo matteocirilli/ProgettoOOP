@@ -55,10 +55,9 @@ public class FacebookController {
 	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
 
-		serviziofb.filtro(body);
+		
 		return new ResponseEntity<>(
-				"Foto filtrate. Per verificare fare richiesta GET a /fb",
-				HttpStatus.OK);
+				serviziofb.filtro(body), HttpStatus.OK);
 	}
 
 
