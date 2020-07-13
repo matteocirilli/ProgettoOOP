@@ -4,7 +4,7 @@ package it.univpm.projectOOP.exceptions;
 /**
  * The Class EmptyAlbumListException.
  */
-public class EmptyAlbumListException extends Exception{
+public class EmptyAlbumListException extends Exception {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -14,7 +14,7 @@ public class EmptyAlbumListException extends Exception{
 	 *
 	 * @param message the message
 	 */
-	public EmptyAlbumListException (String message) {
+	public EmptyAlbumListException(String message) {
 
 		super(message);
 

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.text.ParseException;
 import java.net.MalformedURLException;
 
@@ -25,22 +24,22 @@ import it.univpm.projectOOP.filters_statistics.*;
  */
 @RestController
 public class FacebookController {
-	
+
 	/** The serviziofb. */
 	FacebookService serviziofb = new FacebookService();
-	
+
 	/**
 	 * Foto album.
 	 *
 	 * @param url the url
 	 * @return the response entity
 	 * @throws MalformedURLException the malformed URL exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws ParseException the parse exception
+	 * @throws IOException           Signals that an I/O exception has occurred.
+	 * @throws ParseException        the parse exception
 	 */
 	@PostMapping("/fb")
-	public ResponseEntity<Object> FotoAlbum(@RequestBody String url) throws MalformedURLException, IOException, ParseException {
-
+	public ResponseEntity<Object> FotoAlbum(@RequestBody String url)
+			throws MalformedURLException, IOException, ParseException {
 
 		serviziofb.ParseJson(serviziofb.getFromFacebook(url));
 		return new ResponseEntity<>(
@@ -55,12 +54,9 @@ public class FacebookController {
 	 * @throws EmptyAlbumListException the empty album list exception
 	 */
 	@RequestMapping(value = "/fb", method = RequestMethod.GET)
-	public ResponseEntity<Object> getFbAlbums()  throws EmptyAlbumListException{
+	public ResponseEntity<Object> getFbAlbums() throws EmptyAlbumListException {
 		return new ResponseEntity<>(serviziofb.getFacebookAlbums(), HttpStatus.OK);
 	}
-
-
-
 
 	/**
 	 * Statistichedimensionali.
@@ -69,10 +65,9 @@ public class FacebookController {
 	 * @throws EmptyAlbumListException the empty album list exception
 	 */
 	@RequestMapping(value = "/fb/statistiche/dimensionali", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException{
-		return new ResponseEntity<Object> (Statistiche.statistichedim(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException {
+		return new ResponseEntity<Object>(Statistiche.statistichedim(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
-
 
 	/**
 	 * Statistichetemporali.
@@ -81,8 +76,8 @@ public class FacebookController {
 	 * @throws EmptyAlbumListException the empty album list exception
 	 */
 	@RequestMapping(value = "/fb/statistiche/temporali", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException{
-		return new ResponseEntity<Object> (Statistiche.statistichetemp(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException {
+		return new ResponseEntity<Object>(Statistiche.statistichetemp(serviziofb.getFacebookAlbums()), HttpStatus.OK);
 	}
 
 	/**
@@ -91,28 +86,15 @@ public class FacebookController {
 	 * @param body the body
 	 * @return the response entity
 	 * @throws MalformedURLException the malformed URL exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws ParseException the parse exception
-	 * @throws WrongFilterException the wrong filter exception
+	 * @throws IOException           Signals that an I/O exception has occurred.
+	 * @throws ParseException        the parse exception
+	 * @throws WrongFilterException  the wrong filter exception
 	 */
 	@PostMapping("/fb/filtri")
-	public ResponseEntity<Object> Filtro (@RequestBody String  body) throws MalformedURLException, IOException, ParseException, WrongFilterException {
+	public ResponseEntity<Object> Filtro(@RequestBody String body)
+			throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
-
-
-		return new ResponseEntity<>(
-				serviziofb.filtro(body), HttpStatus.OK);
+		return new ResponseEntity<>(serviziofb.filtro(body), HttpStatus.OK);
 	}
 
-
-
-
-
-
-
-
-
-
-
 }
-

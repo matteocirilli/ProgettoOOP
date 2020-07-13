@@ -1,6 +1,6 @@
 package it.univpm.projectOOP.model;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -11,9 +11,8 @@ public class FacebookAlbum {
 	/** The Album number. */
 	private static int AlbumNumber = 0;
 
-
 	/** The Album. */
-	private ArrayList <FbAlbumPhoto> Album;
+	private ArrayList<FbAlbumPhoto> Album;
 
 	/**
 	 * Instantiates a new facebook album.
@@ -22,7 +21,6 @@ public class FacebookAlbum {
 
 		AlbumNumber++;
 	}
-
 
 	/**
 	 * Gets the album.
@@ -41,11 +39,5 @@ public class FacebookAlbum {
 	public void setAlbum(ArrayList<FbAlbumPhoto> album) {
 		Album = album;
 	}
-
-
-
-
-
-
 
 }

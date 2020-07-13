@@ -1,30 +1,25 @@
 package it.univpm.projectOOP.model;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class FbAlbumPhoto.
  */
 public class FbAlbumPhoto {
 
-
 	/** The width. */
 	private int width;
-	
+
 	/** The height. */
 	private int height;
-	
+
 	/** The pixel. */
 	private String pixel;
-	
+
 	/** The byte dimension. */
 	private int byte_dimension;
-	
+
 	/** The created time. */
 	private String created_time;
-
-
 
 	/**
 	 * Equals.
@@ -59,7 +54,7 @@ public class FbAlbumPhoto {
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * Gets the pixel.
 	 *
@@ -68,7 +63,7 @@ public class FbAlbumPhoto {
 	public String getPixel() {
 		return pixel;
 	}
-	
+
 	/**
 	 * Sets the pixel.
 	 *
@@ -77,7 +72,7 @@ public class FbAlbumPhoto {
 	public void setPixel(String pixel) {
 		this.pixel = pixel;
 	}
-	
+
 	/**
 	 * Gets the height.
 	 *
@@ -86,7 +81,7 @@ public class FbAlbumPhoto {
 	public int getHeight() {
 		return height;
 	}
-	
+
 	/**
 	 * Sets the height.
 	 *
@@ -95,7 +90,7 @@ public class FbAlbumPhoto {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	
+
 	/**
 	 * Gets the width.
 	 *
@@ -104,7 +99,7 @@ public class FbAlbumPhoto {
 	public int getWidth() {
 		return width;
 	}
-	
+
 	/**
 	 * Sets the width.
 	 *
@@ -113,7 +108,7 @@ public class FbAlbumPhoto {
 	public void setWidth(int width) {
 		this.width = width;
 	}
-	
+
 	/**
 	 * Gets the created time.
 	 *
@@ -122,7 +117,7 @@ public class FbAlbumPhoto {
 	public String getCreated_time() {
 		return created_time;
 	}
-	
+
 	/**
 	 * Sets the created time.
 	 *
@@ -131,7 +126,7 @@ public class FbAlbumPhoto {
 	public void setCreated_time(String created_time) {
 		this.created_time = created_time;
 	}
-	
+
 	/**
 	 * Gets the byte dimension.
 	 *
@@ -140,7 +135,7 @@ public class FbAlbumPhoto {
 	public int getByte_dimension() {
 		return byte_dimension;
 	}
-	
+
 	/**
 	 * Sets the byte dimension.
 	 *
@@ -149,8 +144,5 @@ public class FbAlbumPhoto {
 	public void setByte_dimension(int byte_dimension) {
 		this.byte_dimension = byte_dimension;
 	}
-
-
-
 
 }
