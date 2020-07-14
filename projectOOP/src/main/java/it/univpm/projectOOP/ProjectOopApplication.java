@@ -3,7 +3,6 @@ package it.univpm.projectOOP;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProjectOopApplication.
  */
@@ -11,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProjectOopApplication {
 
 	/**
-	 * The main method.
+	 * Classe principale
 	 *
-	 * @param args the arguments
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectOopApplication.class, args);

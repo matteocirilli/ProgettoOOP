@@ -1,8 +1,7 @@
 package it.univpm.projectOOP.exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class WrongFilterException.
+ * Classe eccezione: WrongFilterException.
  */
 public class WrongFilterException extends Exception {
 
@@ -10,9 +9,9 @@ public class WrongFilterException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new wrong filter exception.
+	 * Eccezione che parte se il filtro non è corretto
 	 *
-	 * @param message the message
+	 * @param prende come parametro il messaggio di errore
 	 */
 	public WrongFilterException(String message) {
 		super(message);

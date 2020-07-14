@@ -18,24 +18,33 @@ import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.*;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class FacebookController.
+ * Classe del controller.
  */
 @RestController
+
+/**
+ * Il Controller gestisce le richieste varie di GET e POST
+ * 
+ * @see it.univpm.projectOOP.service.*
+ */
+
 public class FacebookController {
 
-	/** The serviziofb. */
+	/** crea un nuovo facebook service */
 	FacebookService serviziofb = new FacebookService();
 
 	/**
-	 * Foto album.
+	 * richiesta POST "/fb"
 	 *
-	 * @param url the url
-	 * @return the response entity
-	 * @throws MalformedURLException the malformed URL exception
-	 * @throws IOException           Signals that an I/O exception has occurred.
-	 * @throws ParseException        the parse exception
+	 * @param prende dal body l'url per la richiesta post
+	 * @return ritorna un messaggio di ok se la richiesta è andata a buon fine
+	 * @throws MalformedURLException eccezione di errata scrittura dell'url
+	 * @throws IOException           classe base per le eccezioni generate durante
+	 *                               l'accesso a informazioni tramite flussi, file e
+	 *                               directory
+	 * @throws ParseException        eccizione che parte se il processo di parsing è
+	 *                               errato
 	 */
 	@PostMapping("/fb")
 	public ResponseEntity<Object> FotoAlbum(@RequestBody String url)
@@ -48,10 +57,10 @@ public class FacebookController {
 	}
 
 	/**
-	 * Gets the fb albums.
-	 *
-	 * @return the fb albums
-	 * @throws EmptyAlbumListException the empty album list exception
+	 * richiesta GET "/fb"
+	 * 
+	 * @return ritorna tutti gli album con le relative foto
+	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album è vuota
 	 */
 	@RequestMapping(value = "/fb", method = RequestMethod.GET)
 	public ResponseEntity<Object> getFbAlbums() throws EmptyAlbumListException {
@@ -59,10 +68,15 @@ public class FacebookController {
 	}
 
 	/**
-	 * Statistichedimensionali.
+	 * 
+	 * @see it.univpm.projectOOP.filters_statistics.*;
+	 */
+
+	/**
+	 * richiesta GET "/fb/statistiche/dimensionali"
 	 *
-	 * @return the response entity
-	 * @throws EmptyAlbumListException the empty album list exception
+	 * @return ritorna tutte le statistiche in base alla dimensione
+	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album è vuota
 	 */
 	@RequestMapping(value = "/fb/statistiche/dimensionali", method = RequestMethod.GET)
 	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException {
@@ -70,10 +84,12 @@ public class FacebookController {
 	}
 
 	/**
-	 * Statistichetemporali.
+	 * richiesta GET "/fb/statistiche/temporali"
 	 *
-	 * @return the response entity
-	 * @throws EmptyAlbumListException the empty album list exception
+	 * @return ritorna tutte le statistiche in base alla data di crezione delle foto
+	 *         di un album
+	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album
+	 *                                 è vuota
 	 */
 	@RequestMapping(value = "/fb/statistiche/temporali", method = RequestMethod.GET)
 	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException {
@@ -81,14 +97,18 @@ public class FacebookController {
 	}
 
 	/**
-	 * Filtro.
+	 * richiesta POST "/fb/filtri"
 	 *
-	 * @param body the body
-	 * @return the response entity
-	 * @throws MalformedURLException the malformed URL exception
-	 * @throws IOException           Signals that an I/O exception has occurred.
-	 * @throws ParseException        the parse exception
-	 * @throws WrongFilterException  the wrong filter exception
+	 * @param prende dal body l'url per la richiesta post
+	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
+	 *         filtri
+	 * @throws MalformedURLException eccezione di errata scrittura dell'url
+	 * @throws IOException           classe base per le eccezioni generate durante
+	 *                               l'accesso a informazioni tramite flussi, file e
+	 *                               directory.
+	 * @throws ParseException        eccizione che parte se il processo di parsing è
+	 *                               errato
+	 * @throws WrongFilterException  eccizione che parte se il filtri non è corretto
 	 */
 	@PostMapping("/fb/filtri")
 	public ResponseEntity<Object> Filtro(@RequestBody String body)

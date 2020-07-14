@@ -1,8 +1,7 @@
 package it.univpm.projectOOP.exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class EmptyAlbumListException.
+ * Classe eccezione: EmptyAlbumListException.
  */
 public class EmptyAlbumListException extends Exception {
 
@@ -10,9 +9,9 @@ public class EmptyAlbumListException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new empty album list exception.
+	 * Eccezione che parte se la lista di album è vuota
 	 *
-	 * @param message the message
+	 * @param prende come parametro il messaggio di errore
 	 */
 	public EmptyAlbumListException(String message) {
 
