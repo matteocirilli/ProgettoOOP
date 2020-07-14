@@ -24,9 +24,9 @@ public class Statistiche {
 
 		for (int i = 0; i < myfblist.size(); i++) {
 
-			float mediaByte = 0;
-			int minByte = myfblist.get(i).getAlbum().get(i).getByte_dimension();
-			int maxByte = 0;
+			float mediaKbyte = 0;
+			int minKbyte = myfblist.get(i).getAlbum().get(i).getKbyte_dimension();
+			int maxKbyte = 0;
 			float varianza = 0;
 			float devStandard = 0;
 
@@ -34,32 +34,32 @@ public class Statistiche {
 
 			for (int j = 0; j < myfblist.get(i).getAlbum().size(); j++) {
 
-				if (myfblist.get(i).getAlbum().get(j).getByte_dimension() < minByte) {
-					minByte = myfblist.get(i).getAlbum().get(j).getByte_dimension();
+				if (myfblist.get(i).getAlbum().get(j).getKbyte_dimension() < minKbyte) {
+					minKbyte = myfblist.get(i).getAlbum().get(j).getKbyte_dimension();
 				}
 
-				if (myfblist.get(i).getAlbum().get(j).getByte_dimension() > maxByte) {
-					maxByte = myfblist.get(i).getAlbum().get(j).getByte_dimension();
+				if (myfblist.get(i).getAlbum().get(j).getKbyte_dimension() > maxKbyte) {
+					maxKbyte = myfblist.get(i).getAlbum().get(j).getKbyte_dimension();
 				}
 
-				somma += myfblist.get(i).getAlbum().get(j).getByte_dimension();
+				somma += myfblist.get(i).getAlbum().get(j).getKbyte_dimension();
 
 			}
 
-			mediaByte = somma / myfblist.get(i).getAlbum().size();
+			mediaKbyte = somma / myfblist.get(i).getAlbum().size();
 
 			for (int j = 0; j < myfblist.get(i).getAlbum().size(); j++) {
-				varianza += Math.pow(myfblist.get(i).getAlbum().get(j).getByte_dimension() - mediaByte, 2);
+				varianza += Math.pow(myfblist.get(i).getAlbum().get(j).getKbyte_dimension() - mediaKbyte, 2);
 			}
 
 			devStandard = (float) Math.sqrt(varianza);
 			DecimalFormat df = new DecimalFormat("#.##");
 
-			statMap.put("Minimo Byte album " + (i + 1), df.format(minByte));
-			statMap.put("Massimo Byte album " + (i + 1), df.format(maxByte));
-			statMap.put("Media Byte album " + (i + 1), df.format(mediaByte));
-			statMap.put("Varianza Byte album " + (i + 1), df.format(varianza));
-			statMap.put("Deviazione standard Byte album " + (i + 1), df.format(devStandard));
+			statMap.put("Minimo Kbyte album " + (i + 1), df.format(minKbyte));
+			statMap.put("Massimo Kbyte album " + (i + 1), df.format(maxKbyte));
+			statMap.put("Media Kbyte album " + (i + 1), df.format(mediaKbyte));
+			statMap.put("Varianza Kbyte album " + (i + 1), df.format(varianza));
+			statMap.put("Deviazione standard Kbyte album " + (i + 1), df.format(devStandard));
 
 		}
 

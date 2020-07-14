@@ -16,7 +16,7 @@ public class FbAlbumPhoto {
 	private String pixel;
 
 	/** The byte dimension. */
-	private int byte_dimension;
+	private int kbyte_dimension;
 
 	/** The created time. */
 	private String created_time;
@@ -36,7 +36,7 @@ public class FbAlbumPhoto {
 		if (getClass() != obj.getClass())
 			return false;
 		FbAlbumPhoto other = (FbAlbumPhoto) obj;
-		if (byte_dimension != other.byte_dimension)
+		if (kbyte_dimension != other.kbyte_dimension)
 			return false;
 		if (created_time == null) {
 			if (other.created_time != null)
@@ -132,8 +132,8 @@ public class FbAlbumPhoto {
 	 *
 	 * @return the byte_dimension
 	 */
-	public int getByte_dimension() {
-		return byte_dimension;
+	public int getKbyte_dimension() {
+		return kbyte_dimension;
 	}
 
 	/**
@@ -141,8 +141,8 @@ public class FbAlbumPhoto {
 	 *
 	 * @param byte_dimension the byte_dimension to set
 	 */
-	public void setByte_dimension(int byte_dimension) {
-		this.byte_dimension = byte_dimension;
+	public void setKbyte_dimension(int kbyte_dimension) {
+		this.kbyte_dimension = kbyte_dimension;
 	}
 
 }

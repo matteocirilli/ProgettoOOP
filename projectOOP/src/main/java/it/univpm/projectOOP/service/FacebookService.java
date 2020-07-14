@@ -81,7 +81,7 @@ public class FacebookService {
 			foto.setCreated_time(dateStr);
 
 			foto.setPixel(((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height"))));
-			foto.setByte_dimension(((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width"))));
+			foto.setKbyte_dimension((((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width"))))/1024);
 			photo.add(foto);
 
 		}
@@ -176,28 +176,28 @@ public class FacebookService {
 		if (filterType.equals("filterWidthDim")) {
 
 			int width = jbody.getInt("width");
-			int byte_dimension = jbody.getInt("byte_dimension");
+			int kbyte_dimension = jbody.getInt("kbyte_dimension");
 			if (filter.equals("$bt")) {
 				int width2 = jbody.getInt("width2");
-				int byte_dimension2 = jbody.getInt("byte_dimension2");
-				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, byte_dimension,
-						byte_dimension2);
+				int kbyte_dimension2 = jbody.getInt("kbyte_dimension2");
+				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, kbyte_dimension,
+						kbyte_dimension2);
 			} else
-				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, byte_dimension, 0);
+				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, kbyte_dimension, 0);
 
 		}
 		if (filterType.equals("filterHeightDim")) {
 
 			int height = jbody.getInt("height");
 
-			int byte_dimension = jbody.getInt("byte_dimension");
+			int kbyte_dimension = jbody.getInt("kbyte_dimension");
 			if (filter.equals("$bt")) {
 				int height2 = jbody.getInt("height2");
-				int byte_dimension2 = jbody.getInt("byte_dimension2");
-				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, byte_dimension,
-						byte_dimension2);
+				int kbyte_dimension2 = jbody.getInt("kbyte_dimension2");
+				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, kbyte_dimension,
+						kbyte_dimension2);
 			} else
-				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, byte_dimension, 0);
+				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, kbyte_dimension, 0);
 
 		}
 

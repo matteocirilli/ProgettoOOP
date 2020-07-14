@@ -48,7 +48,7 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (filter.equals("$gte") && myfblist.get(i).getAlbum().get(j).getWidth() >= width) {
@@ -56,21 +56,21 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lt") && myfblist.get(i).getAlbum().get(j).getWidth() < width) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lte") && myfblist.get(i).getAlbum().get(j).getWidth() <= width) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getWidth() >= width
 						&& myfblist.get(i).getAlbum().get(j).getWidth() <= width2) {
@@ -78,7 +78,7 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 
@@ -131,7 +131,7 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (filter.equals("$gte") && myfblist.get(i).getAlbum().get(j).getHeight() >= height) {
@@ -139,21 +139,21 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lt") && myfblist.get(i).getAlbum().get(j).getHeight() < height) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lte") && myfblist.get(i).getAlbum().get(j).getHeight() <= height) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getHeight() >= height
 						&& myfblist.get(i).getAlbum().get(j).getHeight() <= height2) {
@@ -161,7 +161,7 @@ public class Filtri {
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (!fotofilt.equals(NotPhoto))
@@ -184,13 +184,13 @@ public class Filtri {
 	 * @param filter          the filter
 	 * @param width           the width
 	 * @param width2          the width 2
-	 * @param byte_dimension  the byte dimension
-	 * @param byte_dimension2 the byte dimension 2
+	 * @param kbyte_dimension  the kbyte dimension
+	 * @param kbyte_dimension2 the kbyte dimension 2
 	 * @return the array list
 	 * @throws WrongFilterException the wrong filter exception
 	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
-			int width, int width2, int byte_dimension, int byte_dimension2) throws WrongFilterException {
+			int width, int width2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -211,47 +211,47 @@ public class Filtri {
 				FbAlbumPhoto fotofilt = new FbAlbumPhoto();
 
 				if (filter.equals("$gt") && myfblist.get(i).getAlbum().get(j).getWidth() > width
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() > byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() > kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (filter.equals("$gte") && myfblist.get(i).getAlbum().get(j).getWidth() >= width
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() >= byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lt") && myfblist.get(i).getAlbum().get(j).getWidth() < width
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() < byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() < kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lte") && myfblist.get(i).getAlbum().get(j).getWidth() <= width
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() <= byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getWidth() >= width
 						&& myfblist.get(i).getAlbum().get(j).getWidth() >= width2
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() >= byte_dimension
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() <= byte_dimension2) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension2) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (!fotofilt.equals(NotPhoto))
@@ -274,13 +274,13 @@ public class Filtri {
 	 * @param filter          the filter
 	 * @param height          the height
 	 * @param height2         the height 2
-	 * @param byte_dimension  the byte dimension
-	 * @param byte_dimension2 the byte dimension 2
+	 * @param byte_dimension  the kbyte dimension
+	 * @param byte_dimension2 the kbyte dimension 2
 	 * @return the array list
 	 * @throws WrongFilterException the wrong filter exception
 	 */
 	public static ArrayList<FacebookAlbum> filtroAltezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
-			int height, int height2, int byte_dimension, int byte_dimension2) throws WrongFilterException {
+			int height, int height2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -300,46 +300,47 @@ public class Filtri {
 				FbAlbumPhoto fotofilt = new FbAlbumPhoto();
 
 				if (filter.equals("$gt") && myfblist.get(i).getAlbum().get(j).getHeight() > height
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() > byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() > kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (filter.equals("$gte") && myfblist.get(i).getAlbum().get(j).getHeight() >= height
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() >= byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$lt") && myfblist.get(i).getAlbum().get(j).getHeight() < height
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() < byte_dimension) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() < kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
-				if (filter.equals("$lte") && myfblist.get(i).getAlbum().get(j).getHeight() <= height) {
+				if (filter.equals("$lte") && myfblist.get(i).getAlbum().get(j).getHeight() <= height
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getHeight() >= height
 						&& myfblist.get(i).getAlbum().get(j).getHeight() >= height2
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() >= byte_dimension
-						&& myfblist.get(i).getAlbum().get(j).getByte_dimension() <= byte_dimension2) {
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension
+						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension2) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
 					fotofilt.setHeight(myfblist.get(i).getAlbum().get(j).getHeight());
 					fotofilt.setPixel(myfblist.get(i).getAlbum().get(j).getPixel());
 					fotofilt.setCreated_time(myfblist.get(i).getAlbum().get(j).getCreated_time());
-					fotofilt.setByte_dimension(myfblist.get(i).getAlbum().get(j).getByte_dimension());
+					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 
 				}
 				if (!fotofilt.equals(NotPhoto))
