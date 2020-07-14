@@ -6,17 +6,16 @@ import java.util.LinkedHashMap;
 
 import it.univpm.projectOOP.model.*;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Statistiche.
+ * Classe delle Statistiche.
  */
 public class Statistiche {
 
 	/**
-	 * Statistichedim.
+	 * Statistiche in base alle dimensione in kilobyte
 	 *
-	 * @param myfblist the myfblist
-	 * @return the linked hash map
+	 * @param myfblist prende come parametro la lista di album
+	 * @return ritorna la linked hash map contenente le statistiche dimensionali
 	 */
 	public static LinkedHashMap<String, String> statistichedim(ArrayList<FacebookAlbum> myfblist) {
 
@@ -68,10 +67,10 @@ public class Statistiche {
 	}
 
 	/**
-	 * Statistichetemp.
+	 * Statistiche in base alle dimensione in kilobyte
 	 *
-	 * @param myfblist the myfblist
-	 * @return the linked hash map
+	 * @param myfblist prende come parametro la lista di album
+	 * @return ritorna la linked hash map contenente le statistiche temporali
 	 */
 	public static LinkedHashMap<String, String> statistichetemp(ArrayList<FacebookAlbum> myfblist) {
 

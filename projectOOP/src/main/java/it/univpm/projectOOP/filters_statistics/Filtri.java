@@ -6,21 +6,20 @@ import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.model.FacebookAlbum;
 import it.univpm.projectOOP.model.FbAlbumPhoto;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Filtri.
+ * Classe Filtri
  */
 public class Filtri {
 
 	/**
-	 * Filtro larghezza.
+	 * Filtra in base alla larghezza.
 	 *
-	 * @param myfblist the myfblist
-	 * @param filter   the filter
-	 * @param width    the width
-	 * @param width2   the width 2
-	 * @return the array list
-	 * @throws WrongFilterException the wrong filter exception
+	 * @param myfblist prende come parametro la lista di album
+	 * @param filter   prende come parametro il tipo di filtro
+	 * @param width    prende come parametro la larghezza
+	 * @param width2   prende come parametro la seconda larghezza per il filtro $bt
+	 * @return ritorna la lista filtrata
+	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezza(ArrayList<FacebookAlbum> myfblist, String filter, int width,
 			int width2) throws WrongFilterException {
@@ -96,14 +95,14 @@ public class Filtri {
 	}
 
 	/**
-	 * Filtro altezza.
+	 * Filtra in base all'altezza
 	 *
-	 * @param myfblist the myfblist
-	 * @param filter   the filter
-	 * @param height   the height
-	 * @param height2  the height 2
-	 * @return the array list
-	 * @throws WrongFilterException the wrong filter exception
+	 * @param myfblist prende come parametro la lista di album
+	 * @param filter   prende come parametro il tipo di filtro
+	 * @param height   prende come parametro l'altezza
+	 * @param height2  prende come parametro la seconda altezza per il filtro $bt
+	 * @return ritorna la lista filtrata
+	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroAltezza(ArrayList<FacebookAlbum> myfblist, String filter, int height,
 			int height2) throws WrongFilterException {
@@ -178,16 +177,18 @@ public class Filtri {
 	}
 
 	/**
-	 * Filtro larghezza dim.
+	 * Filtra in base alla larghezza e alla dimensione in kilobyte
 	 *
-	 * @param myfblist        the myfblist
-	 * @param filter          the filter
-	 * @param width           the width
-	 * @param width2          the width 2
-	 * @param kbyte_dimension  the kbyte dimension
-	 * @param kbyte_dimension2 the kbyte dimension 2
-	 * @return the array list
-	 * @throws WrongFilterException the wrong filter exception
+	 * @param myfblist         prende come parametro la lista di album
+	 * @param filter           prende come parametro il tipo di filtro
+	 * @param width            prende come parametro la larghezza
+	 * @param width2           prende come parametro la seconda larghezza per il
+	 *                         filtro $bt
+	 * @param kbyte_dimension  prende come parametro la dimensione in kilobyte
+	 * @param kbyte_dimension2 prende come parametro la seconda dimensione in
+	 *                         kilobyte per il filtro $bt
+	 * @return ritorna la lista filtrata
+	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
 			int width, int width2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
@@ -268,16 +269,18 @@ public class Filtri {
 	}
 
 	/**
-	 * Filtro altezza dim.
+	 * Filtra in base all'altezza e alla dimensione in kilobyte
 	 *
-	 * @param myfblist        the myfblist
-	 * @param filter          the filter
-	 * @param height          the height
-	 * @param height2         the height 2
-	 * @param byte_dimension  the kbyte dimension
-	 * @param byte_dimension2 the kbyte dimension 2
-	 * @return the array list
-	 * @throws WrongFilterException the wrong filter exception
+	 * @param myfblist         prende come parametro la lista di album
+	 * @param filter           prende come parametro il tipo di filtro
+	 * @param height           prende come parametro l'altezza
+	 * @param height2          prende come parametro la seconda altezza per il
+	 *                         filtro $bt
+	 * @param kbyte_dimension  prende come parametro la dimensione in kilobyte
+	 * @param kbyte_dimension2 prende come parametro la seconda dimensione in
+	 *                         kilobyte per il filtro $bt
+	 * @return ritorna la lista filtrata
+	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroAltezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
 			int height, int height2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
