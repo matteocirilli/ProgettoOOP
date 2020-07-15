@@ -38,7 +38,7 @@ public class FacebookController {
 	/**
 	 * richiesta POST "/fb"
 	 *
-	 * @param prende dal body l'url per la richiesta post
+	 * @param url prende dal body l'url per la richiesta post
 	 * @return ritorna un messaggio di ok se la richiesta è andata a buon fine
 	 * @throws MalformedURLException eccezione di errata scrittura dell'url
 	 * @throws IOException           classe base per le eccezioni generate durante
@@ -76,7 +76,7 @@ public class FacebookController {
 	/**
 	 * richiesta POST "/fb/stats"
 	 *
-	 * @param prende dal body l'url per la richiesta post
+	 * @param body Stringa contenente il tipo di statistica
 	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
 	 *         filtri
 	 * @throws MalformedURLException eccezione di errata scrittura dell'url
@@ -96,7 +96,7 @@ public class FacebookController {
 	/**
 	 * richiesta POST "/fb/filters"
 	 *
-	 * @param prende dal body l'url per la richiesta post
+	 * @param body contenente il tipo di filtro e i parametri per il contronto
 	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
 	 *         filtri
 	 * @throws MalformedURLException eccezione di errata scrittura dell'url

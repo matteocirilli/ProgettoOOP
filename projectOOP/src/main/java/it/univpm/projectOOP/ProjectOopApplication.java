@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * The Class ProjectOopApplication.
+ * @author Matteo Cirilli
+ * @author Marco Barbarella
  */
 @SpringBootApplication
 public class ProjectOopApplication {
