@@ -23,6 +23,10 @@ import it.univpm.projectOOP.model.FbAlbumPhoto;
 
 import org.json.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jsonSchema.JsonSchemaGenerator;
+
 /**
  * Classe FacebookService.
  */
@@ -207,6 +211,18 @@ public class FacebookService {
 		else
 			return Statistiche.statistichedim(myfblist);
 
+	}
+	
+	public String getMetadata(Class<?> myClass) {
+		// TODO Auto-generated method stub
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			JsonSchemaGenerator schemaGen = new JsonSchemaGenerator(mapper);
+			com.fasterxml.jackson.module.jsonSchema.JsonSchema schema = schemaGen.generateSchema(myClass);
+			return mapper.writeValueAsString(schema);
+		} catch (JsonProcessingException e) {
+			return e.getLocalizedMessage();
+		}
 	}
 
 }
