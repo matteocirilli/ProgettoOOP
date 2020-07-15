@@ -32,7 +32,7 @@ import it.univpm.projectOOP.filters_statistics.*;
 public class FacebookController {
 
 	/** crea un nuovo facebook service */
-	FacebookService serviziofb = new FacebookService();
+	FacebookService fbservice = new FacebookService();
 
 	/**
 	 * richiesta POST "/fb"
@@ -43,15 +43,15 @@ public class FacebookController {
 	 * @throws IOException           classe base per le eccezioni generate durante
 	 *                               l'accesso a informazioni tramite flussi, file e
 	 *                               directory
-	 * @throws ParseException        eccizione che parte se il processo di parsing è
+	 * @throws ParseException        eccezione che parte se il processo di parsing è
 	 *                               errato
 	 */
 	@PostMapping("/fb")
-	public ResponseEntity<Object> FotoAlbum(@RequestBody String url)
+	public ResponseEntity<Object> DownloadFbAlbums(@RequestBody String url)
 			throws MalformedURLException, IOException, ParseException {
 
-		serviziofb.ParseJson(serviziofb.getFromFacebook(url));
-		return new ResponseEntity<>(
+		fbservice.ParseJson(fbservice.getFromFacebook(url));
+		return new ResponseEntity<Object>(
 				"Foto scaricate correttamente dall'album. Per verificare, fare una richiesta GET all'indirizzo /fb",
 				HttpStatus.OK);
 	}
@@ -64,7 +64,7 @@ public class FacebookController {
 	 */
 	@RequestMapping(value = "/fb", method = RequestMethod.GET)
 	public ResponseEntity<Object> getFbAlbums() throws EmptyAlbumListException {
-		return new ResponseEntity<>(serviziofb.getFacebookAlbums(), HttpStatus.OK);
+		return new ResponseEntity<Object>(fbservice.getFacebookAlbums(), HttpStatus.OK);
 	}
 
 	/**
@@ -73,31 +73,31 @@ public class FacebookController {
 	 */
 
 	/**
-	 * richiesta GET "/fb/statistiche/dimensionali"
+	 * richiesta GET "/fb/stats/dim"
 	 *
 	 * @return ritorna tutte le statistiche in base alla dimensione
 	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album è vuota
 	 */
-	@RequestMapping(value = "/fb/statistiche/dimensionali", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistichedimensionali() throws EmptyAlbumListException {
-		return new ResponseEntity<Object>(Statistiche.statistichedim(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	@RequestMapping(value = "/fb/stats/dim", method = RequestMethod.GET)
+	public ResponseEntity<Object> dimStats() throws EmptyAlbumListException {
+		return new ResponseEntity<Object>(Statistiche.statistichedim(fbservice.getFacebookAlbums()), HttpStatus.OK);
 	}
 
 	/**
-	 * richiesta GET "/fb/statistiche/temporali"
+	 * richiesta GET "/fb/stats/temp"
 	 *
 	 * @return ritorna tutte le statistiche in base alla data di crezione delle foto
 	 *         di un album
 	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album
 	 *                                 è vuota
 	 */
-	@RequestMapping(value = "/fb/statistiche/temporali", method = RequestMethod.GET)
-	public ResponseEntity<Object> statistichetemporali() throws EmptyAlbumListException {
-		return new ResponseEntity<Object>(Statistiche.statistichetemp(serviziofb.getFacebookAlbums()), HttpStatus.OK);
+	@RequestMapping(value = "/fb/stats/temp", method = RequestMethod.GET)
+	public ResponseEntity<Object> tempStats() throws EmptyAlbumListException {
+		return new ResponseEntity<Object>(Statistiche.statistichetemp(fbservice.getFacebookAlbums()), HttpStatus.OK);
 	}
 
 	/**
-	 * richiesta POST "/fb/filtri"
+	 * richiesta POST "/fb/filters"
 	 *
 	 * @param prende dal body l'url per la richiesta post
 	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
@@ -106,15 +106,15 @@ public class FacebookController {
 	 * @throws IOException           classe base per le eccezioni generate durante
 	 *                               l'accesso a informazioni tramite flussi, file e
 	 *                               directory.
-	 * @throws ParseException        eccizione che parte se il processo di parsing è
+	 * @throws ParseException        eccezione che parte se il processo di parsing è
 	 *                               errato
-	 * @throws WrongFilterException  eccizione che parte se il filtri non è corretto
+	 * @throws WrongFilterException  eccezione che parte se il filtri non è corretto
 	 */
-	@PostMapping("/fb/filtri")
+	@PostMapping("/fb/filters")
 	public ResponseEntity<Object> Filtro(@RequestBody String body)
 			throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
-		return new ResponseEntity<>(serviziofb.filtro(body), HttpStatus.OK);
+		return new ResponseEntity<>(fbservice.filtro(body), HttpStatus.OK);
 	}
 
 }
