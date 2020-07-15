@@ -12,14 +12,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
 import it.univpm.projectOOP.filters_statistics.Filtri;
+import it.univpm.projectOOP.filters_statistics.Statistiche;
 import it.univpm.projectOOP.model.FacebookAlbum;
 import it.univpm.projectOOP.model.FbAlbumPhoto;
 
 import org.json.*;
+
+
 
 /**
  * Classe FacebookService
@@ -122,7 +126,7 @@ public class FacebookService {
 	 * @return ritorna la lista filtrata
 	 * @throws WrongFilterException eccezione che parte se il filtro non è corretto
 	 */
-	public ArrayList<FacebookAlbum> filtro(String body) throws WrongFilterException {
+	public ArrayList<FacebookAlbum> filterFbService(String body) throws WrongFilterException {
 
 		ArrayList<FacebookAlbum> listafiltrata = new ArrayList<FacebookAlbum>();
 		JSONObject jbody = new JSONObject(body);
@@ -182,6 +186,19 @@ public class FacebookService {
 		}
 
 		return listafiltrata;
+
+	}
+
+	public LinkedHashMap<String, String> statsFbService(String body) throws WrongFilterException {
+
+		JSONObject jbody = new JSONObject(body);
+		String typeStat = jbody.getString("typeStat");
+		if (!typeStat.equals("dim") && !typeStat.equals("temp"))
+			throw new WrongFilterException("Puoi solo cercare statistiche temporali o dimensionali!");
+		if (typeStat.equals("temp"))
+			return Statistiche.statistichetemp(myfblist);
+		else
+			return Statistiche.statistichedim(myfblist);
 
 	}
 

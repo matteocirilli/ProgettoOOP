@@ -16,7 +16,8 @@ import org.springframework.http.ResponseEntity;
 import it.univpm.projectOOP.service.*;
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
-import it.univpm.projectOOP.filters_statistics.*;
+import it.univpm.projectOOP.model.FbAlbumPhoto;
+
 
 /**
  * Classe del controller.
@@ -73,29 +74,25 @@ public class FacebookController {
 	 */
 
 	/**
-	 * richiesta GET "/fb/stats/dim"
+	 * richiesta POST "/fb/stats"
 	 *
-	 * @return ritorna tutte le statistiche in base alla dimensione
-	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album è vuota
+	 * @param prende dal body l'url per la richiesta post
+	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
+	 *         filtri
+	 * @throws MalformedURLException eccezione di errata scrittura dell'url
+	 * @throws IOException           classe base per le eccezioni generate durante
+	 *                               l'accesso a informazioni tramite flussi, file e
+	 *                               directory.
+	 * @throws ParseException        eccezione che parte se il processo di parsing è
+	 *                               errato
+	 * @throws WrongFilterException  eccezione che parte se il filtro non è corretto
 	 */
-	@RequestMapping(value = "/fb/stats/dim", method = RequestMethod.GET)
-	public ResponseEntity<Object> dimStats() throws EmptyAlbumListException {
-		return new ResponseEntity<Object>(Statistiche.statistichedim(fbservice.getFacebookAlbums()), HttpStatus.OK);
-	}
+	@PostMapping("/fb/stats")
+	public ResponseEntity<Object> statsFbAlbums(@RequestBody String body)
+			throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
-	/**
-	 * richiesta GET "/fb/stats/temp"
-	 *
-	 * @return ritorna tutte le statistiche in base alla data di crezione delle foto
-	 *         di un album
-	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album
-	 *                                 è vuota
-	 */
-	@RequestMapping(value = "/fb/stats/temp", method = RequestMethod.GET)
-	public ResponseEntity<Object> tempStats() throws EmptyAlbumListException {
-		return new ResponseEntity<Object>(Statistiche.statistichetemp(fbservice.getFacebookAlbums()), HttpStatus.OK);
+		return new ResponseEntity<>(fbservice.statsFbService(body), HttpStatus.OK);
 	}
-
 	/**
 	 * richiesta POST "/fb/filters"
 	 *
@@ -111,10 +108,12 @@ public class FacebookController {
 	 * @throws WrongFilterException  eccezione che parte se il filtro non è corretto
 	 */
 	@PostMapping("/fb/filters")
-	public ResponseEntity<Object> Filtro(@RequestBody String body)
+	public ResponseEntity<Object> filterFbAlbums(@RequestBody String body)
 			throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
-		return new ResponseEntity<>(fbservice.filtro(body), HttpStatus.OK);
+		return new ResponseEntity<>(fbservice.filterFbService(body), HttpStatus.OK);
 	}
+	
+	
 
 }
