@@ -23,10 +23,8 @@ import it.univpm.projectOOP.model.FbAlbumPhoto;
 
 import org.json.*;
 
-
-
 /**
- * Classe FacebookService
+ * Classe FacebookService.
  */
 public class FacebookService {
 
@@ -34,11 +32,11 @@ public class FacebookService {
 	private ArrayList<FacebookAlbum> myfblist = new ArrayList<FacebookAlbum>();
 
 	/**
-	 * Metodo che ritorna la lista di facebook albums
+	 * Metodo che ritorna la lista di facebook albums.
 	 *
-	 * @return ritorna la lista di tutti i facebook albums
+	 * @return ritorna la lista di tutti i facebook albums.
 	 * @throws EmptyAlbumListException Eccezione che parte se la lista di album è
-	 *                                 vuota
+	 *                                 vuota.
 	 */
 	public ArrayList<FacebookAlbum> getFacebookAlbums() throws EmptyAlbumListException {
 
@@ -51,8 +49,9 @@ public class FacebookService {
 	/**
 	 * Metodo per il parsing del json.
 	 *
-	 * @param jsonString json sotto forma di stringa
-	 * @throws ParseException eccezione che parte se il processo di parsing è errato
+	 * @param jsonString json sotto forma di stringa.
+	 * @throws ParseException eccezione che parte se il processo di parsing è
+	 *                        errato.
 	 */
 	public void ParseJson(String jsonString) throws ParseException {
 
@@ -90,10 +89,10 @@ public class FacebookService {
 	}
 
 	/**
-	 * Richiesta HTTP per i dati da facebook
+	 * Richiesta HTTP per i dati da facebook.
 	 *
-	 * @param fburl Viene passato come pametro una stringa contenente l'url
-	 * @return stringa vuota se tutto è andato a buon fine
+	 * @param fburl Viene passato come pametro una stringa contenente l'url.
+	 * @return stringa vuota se tutto è andato a buon fine.
 	 */
 	public String getFromFacebook(String fburl) {
 
@@ -119,12 +118,12 @@ public class FacebookService {
 	}
 
 	/**
-	 * Service del filtro
+	 * Service del filtro.
 	 *
-	 * @param body Stringa contenente i valori con i quali confrontare tutte le fot
-	 *             degli album
-	 * @return ritorna la lista filtrata
-	 * @throws WrongFilterException eccezione che parte se il filtro non è corretto
+	 * @param body Stringa contenente i valori con i quali confrontare tutte le foto
+	 *             degli album.
+	 * @return ritorna la lista filtrata.
+	 * @throws WrongFilterException eccezione che parte se il filtro non è corretto.
 	 */
 	public ArrayList<FacebookAlbum> filterFbService(String body) throws WrongFilterException {
 
@@ -189,6 +188,14 @@ public class FacebookService {
 
 	}
 
+	/**
+	 * Service delle statistiche
+	 *
+	 * @param body stringa contenente il tipo di filtro da utilizzare.
+	 * @return La linked Hash Map con tutte le statistiche.
+	 * @throws WrongFilterException eccezione che parte se il tipo di statiscica non
+	 *                              è corretto.
+	 */
 	public LinkedHashMap<String, String> statsFbService(String body) throws WrongFilterException {
 
 		JSONObject jbody = new JSONObject(body);
