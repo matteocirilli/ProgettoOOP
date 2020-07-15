@@ -108,7 +108,7 @@ public class FacebookController {
 	 *                               directory.
 	 * @throws ParseException        eccezione che parte se il processo di parsing è
 	 *                               errato
-	 * @throws WrongFilterException  eccezione che parte se il filtri non è corretto
+	 * @throws WrongFilterException  eccezione che parte se il filtro non è corretto
 	 */
 	@PostMapping("/fb/filters")
 	public ResponseEntity<Object> Filtro(@RequestBody String body)

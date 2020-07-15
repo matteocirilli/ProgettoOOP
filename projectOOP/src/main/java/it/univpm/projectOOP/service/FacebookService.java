@@ -21,97 +21,79 @@ import it.univpm.projectOOP.model.FbAlbumPhoto;
 
 import org.json.*;
 
-
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class FacebookService.
+ * Classe FacebookService
  */
 public class FacebookService {
-	
-	/** The myfblist. */
+
+	/** creazione della lista di album (myfblist). */
 	private ArrayList<FacebookAlbum> myfblist = new ArrayList<FacebookAlbum>();
 
-
 	/**
-	 * Gets the facebook albums.
+	 * Metodo che ritorna la lista di facebook albums
 	 *
-	 * @return the facebook albums
-	 * @throws EmptyAlbumListException the empty album list exception
+	 * @return ritorna la lista di tutti i facebook albums
+	 * @throws EmptyAlbumListException Eccezione che parte se la lista di album è
+	 *                                 vuota
 	 */
-	public ArrayList<FacebookAlbum> getFacebookAlbums () throws EmptyAlbumListException {
+	public ArrayList<FacebookAlbum> getFacebookAlbums() throws EmptyAlbumListException {
 
-		if(myfblist.isEmpty()) 
+		if (myfblist.isEmpty())
 			throw new EmptyAlbumListException("La lista di Album di Facebook è vuota");
 
 		return myfblist;
 	}
-	
+
 	/**
-	 * Parses the json.
+	 * Metodo per il parsing del json.
 	 *
-	 * @param jsonString the json string
-	 * @throws ParseException the parse exception
+	 * @param jsonString json sotto forma di stringa
+	 * @throws ParseException eccezione che parte se il processo di parsing è errato
 	 */
-	public void ParseJson (String jsonString) throws ParseException{
+	public void ParseJson(String jsonString) throws ParseException {
 
+		FacebookAlbum album = new FacebookAlbum();
 
-		FacebookAlbum album = new FacebookAlbum();	
-
-
-		ArrayList <FbAlbumPhoto> photo = new ArrayList <FbAlbumPhoto>();
+		ArrayList<FbAlbumPhoto> photo = new ArrayList<FbAlbumPhoto>();
 
 		JSONObject obj = new JSONObject(jsonString);
 		JSONObject photos = obj.getJSONObject("photos");
 		JSONArray data = photos.getJSONArray("data");
 
-
-
-		for(int i=0;i<data.length();i++)
-		{
-			FbAlbumPhoto foto = new FbAlbumPhoto(); 
+		for (int i = 0; i < data.length(); i++) {
+			FbAlbumPhoto foto = new FbAlbumPhoto();
 			foto.setHeight((data.getJSONObject(i).getInt("height")));
 			foto.setWidth((data.getJSONObject(i).getInt("width")));
 			String s = data.getJSONObject(i).getString("created_time");
 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0000'");
 			Date date = dateFormat.parse(s);
-			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 			String dateStr = formatter.format(date);
 			foto.setCreated_time(dateStr);
 
-			foto.setPixel(((data.getJSONObject(i).getInt("width"))+ " X " + (data.getJSONObject(i).getInt("height"))));
-			foto.setKbyte_dimension((((data.getJSONObject(i).getInt("height"))*(data.getJSONObject(i).getInt("width"))))/1024);
+			foto.setPixel(((data.getJSONObject(i).getInt("width")) + " X " + (data.getJSONObject(i).getInt("height"))));
+			foto.setKbyte_dimension(
+					(((data.getJSONObject(i).getInt("height")) * (data.getJSONObject(i).getInt("width")))) / 1024);
 			photo.add(foto);
 
 		}
 
-
 		album.setAlbum(photo);
-
-
-
-
-
 
 		myfblist.add(album);
 
-
-
-
 	}
 
-
 	/**
-	 * Gets the from facebook.
+	 * Richiesta HTTP per i dati da facebook
 	 *
-	 * @param fburl the fburl
-	 * @return the from facebook
+	 * @param fburl Viene passato come pametro una stringa contenente l'url
+	 * @return stringa vuota se tutto è andato a buon fine
 	 */
-	public String getFromFacebook (String fburl) {
+	public String getFromFacebook(String fburl) {
 
 		String response = "";
-
 
 		try {
 
@@ -120,27 +102,25 @@ public class FacebookService {
 			BufferedReader read = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = read.readLine();
 
-			response=line;
+			response = line;
 
-
-		} catch(MalformedURLException ex) {
+		} catch (MalformedURLException ex) {
 			ex.printStackTrace();
-		} catch(IOException ioex) {
+		} catch (IOException ioex) {
 			ioex.printStackTrace();
 		}
 
-
 		return response;
-
 
 	}
 
 	/**
-	 * Filtro.
+	 * Service del filtro
 	 *
-	 * @param body the body
-	 * @return the array list
-	 * @throws WrongFilterException the wrong filter exception
+	 * @param body Stringa contenente i valori con i quali confrontare tutte le fot
+	 *             degli album
+	 * @return ritorna la lista filtrata
+	 * @throws WrongFilterException eccezione che parte se il filtro non è corretto
 	 */
 	public ArrayList<FacebookAlbum> filtro(String body) throws WrongFilterException {
 
@@ -204,6 +184,5 @@ public class FacebookService {
 		return listafiltrata;
 
 	}
-
 
 }
