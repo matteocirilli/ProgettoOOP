@@ -1,31 +1,30 @@
 package it.univpm.projectOOP.model;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class FbAlbumPhoto.
+ * Classe FbAlbumPhoto
  */
 public class FbAlbumPhoto {
 
-	/** The width. */
+	/** Dichiarazione larghezza. */
 	private int width;
 
-	/** The height. */
+	/** Dichiarazione altezza. */
 	private int height;
 
-	/** The pixel. */
+	/** Dichiarazione numero di pixel. */
 	private String pixel;
 
-	/** The byte dimension. */
+	/** Dichiarazione numero kilobyte di una foto. */
 	private int kbyte_dimension;
 
-	/** The created time. */
+	/** Dichiarazione data di crezione. */
 	private String created_time;
 
 	/**
-	 * Equals.
+	 * Overriding del metodo equals
 	 *
-	 * @param obj the obj
-	 * @return true, if successful
+	 * @param obj
+	 * @return true, se va a buon fine
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -56,90 +55,90 @@ public class FbAlbumPhoto {
 	}
 
 	/**
-	 * Gets the pixel.
+	 * Metodo GET per numero di pixel
 	 *
-	 * @return the pixel
+	 * @return numero di pixel
 	 */
 	public String getPixel() {
 		return pixel;
 	}
 
 	/**
-	 * Sets the pixel.
+	 * Metodo SET per numero di pixel
 	 *
-	 * @param pixel the pixel to set
+	 * @param pixel numero di pixel da settare
 	 */
 	public void setPixel(String pixel) {
 		this.pixel = pixel;
 	}
 
 	/**
-	 * Gets the height.
+	 * Metodo GET per altezza
 	 *
-	 * @return the height
+	 * @return l'altezza
 	 */
 	public int getHeight() {
 		return height;
 	}
 
 	/**
-	 * Sets the height.
+	 * Metodo SET per altezza
 	 *
-	 * @param height the height to set
+	 * @param height altezza da settare
 	 */
 	public void setHeight(int height) {
 		this.height = height;
 	}
 
 	/**
-	 * Gets the width.
+	 * Metodo GET per larghezza
 	 *
-	 * @return the width
+	 * @return l'altezza
 	 */
 	public int getWidth() {
 		return width;
 	}
 
 	/**
-	 * Sets the width.
+	 * Metodo SET per larghezza
 	 *
-	 * @param width the width to set
+	 * @param width larghezza da settare
 	 */
 	public void setWidth(int width) {
 		this.width = width;
 	}
 
 	/**
-	 * Gets the created time.
+	 * Metodo GET per data di crezione
 	 *
-	 * @return the created_time
+	 * @return la data di crezione
 	 */
 	public String getCreated_time() {
 		return created_time;
 	}
 
 	/**
-	 * Sets the created time.
+	 * Metodo SET per data di crezione
 	 *
-	 * @param created_time the created_time to set
+	 * @param created_time data di crezione da settare
 	 */
 	public void setCreated_time(String created_time) {
 		this.created_time = created_time;
 	}
 
 	/**
-	 * Gets the byte dimension.
+	 * Metodo GET per numero kilobyte di una foto
 	 *
-	 * @return the byte_dimension
+	 * @return il numero kilobyte di una foto
 	 */
 	public int getKbyte_dimension() {
 		return kbyte_dimension;
 	}
 
 	/**
-	 * Sets the byte dimension.
+	 * Metodo SET per numero kilobyte di una foto
 	 *
-	 * @param byte_dimension the byte_dimension to set
+	 * @param byte_dimension numero kilobyte da settare
 	 */
 	public void setKbyte_dimension(int kbyte_dimension) {
 		this.kbyte_dimension = kbyte_dimension;

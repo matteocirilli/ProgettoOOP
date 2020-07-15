@@ -2,39 +2,27 @@ package it.univpm.projectOOP.model;
 
 import java.util.ArrayList;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class FacebookAlbum.
+ * Classw FacebookAlbum.
  */
 public class FacebookAlbum {
 
-	/** The Album number. */
-	private static int AlbumNumber = 0;
-
-	/** The Album. */
+	/** Dichiarazione di un facebook album. */
 	private ArrayList<FbAlbumPhoto> Album;
 
 	/**
-	 * Instantiates a new facebook album.
-	 */
-	public FacebookAlbum() {
-
-		AlbumNumber++;
-	}
-
-	/**
-	 * Gets the album.
+	 * Metodo GET per il facebook album.
 	 *
-	 * @return the album
+	 * @return il facebook album
 	 */
 	public ArrayList<FbAlbumPhoto> getAlbum() {
 		return Album;
 	}
 
 	/**
-	 * Sets the album.
+	 * Metodo SET per il facebook album.
 	 *
-	 * @param album the album to set
+	 * @param album facebook album da settare
 	 */
 	public void setAlbum(ArrayList<FbAlbumPhoto> album) {
 		Album = album;
