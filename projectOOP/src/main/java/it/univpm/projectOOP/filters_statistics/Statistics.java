@@ -54,11 +54,11 @@ public class Statistics {
 			devStandard = (float) Math.sqrt(varianza);
 			DecimalFormat df = new DecimalFormat("#.##");
 
-			statMap.put("Minimo Kbyte album " + (i + 1), df.format(minKbyte));
-			statMap.put("Massimo Kbyte album " + (i + 1), df.format(maxKbyte));
-			statMap.put("Media Kbyte album " + (i + 1), df.format(mediaKbyte));
-			statMap.put("Varianza Kbyte album " + (i + 1), df.format(varianza));
-			statMap.put("Deviazione standard Kbyte album " + (i + 1), df.format(devStandard));
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Minimo Kbyte", df.format(minKbyte));
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Massimo Kbyte", df.format(maxKbyte));
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Media Kbyte", df.format(mediaKbyte));
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Varianza Kbyte", df.format(varianza));
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Deviazione standard Kbyte", df.format(devStandard));
 
 		}
 
@@ -148,18 +148,22 @@ public class Statistics {
 				}
 
 			}
-			int c = i + 1;
-			statMap.put("Data foto più vecchia album " + c, minGiorno + "-" + minMese + "-" + minAnno);
-			statMap.put("Data foto più recente album " + c, maxGiorno + "-" + maxMese + "-" + maxAnno);
+
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Data foto più vecchia",
+					minGiorno + "-" + minMese + "-" + minAnno);
+			statMap.put("(ALBUM N." + (i + 1) + ")" + " Data foto più recente",
+					maxGiorno + "-" + maxMese + "-" + maxAnno);
 
 			for (int k = 0; k < cadenzamesi.length; k++) {
 				if (cadenzamesi[k] != 0)
-					statMap.put("Cadenza foto nel mese numero " + (k + 1) + ": ", cadenzamesi[k] + "");
+					statMap.put("(ALBUM N." + (i + 1) + ")" + " Cadenza foto nel mese numero " + (k + 1),
+							cadenzamesi[k] + "");
 			}
 
 			for (int k = 0; k < cadenzagiorni.length; k++) {
 				if (cadenzagiorni[k] != 0)
-					statMap.put("Cadenza foto nel giorno numero " + (k + 1) + ": ", cadenzagiorni[k] + "");
+					statMap.put("(ALBUM N." + (i + 1) + ")" + " Cadenza foto nel giorno numero " + (k + 1),
+							cadenzagiorni[k] + "");
 			}
 
 		}

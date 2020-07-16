@@ -17,9 +17,7 @@ import it.univpm.projectOOP.service.*;
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 
 import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
-import it.univpm.projectOOP.model.FbAlbumPhoto;
 
-import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
 import it.univpm.projectOOP.model.*;
 
 /**
@@ -125,7 +123,7 @@ public class FacebookController {
 
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> getMeta() {
-		String meta = fbservice.getMetadata(FacebookAlbum.class) + fbservice.getMetadata(FbAlbumPhoto.class);
+		String meta = fbservice.getMetadata(FacebookAlbum.class);
 		return new ResponseEntity<>(meta, HttpStatus.OK);
 	}
 
