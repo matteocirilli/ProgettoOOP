@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import it.univpm.projectOOP.service.*;
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterException;
-import it.univpm.projectOOP.model.FbAlbumPhoto;
+import it.univpm.projectOOP.model.*;
 
 
 /**
@@ -112,6 +112,12 @@ public class FacebookController {
 			throws MalformedURLException, IOException, ParseException, WrongFilterException {
 
 		return new ResponseEntity<>(fbservice.filterFbService(body), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/metadata", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Object> getMeta() {
+		String meta = fbservice.getMetadata(FacebookAlbum.class) + fbservice.getMetadata(FbAlbumPhoto.class);
+		return new ResponseEntity<>(meta, HttpStatus.OK);
 	}
 	
 	

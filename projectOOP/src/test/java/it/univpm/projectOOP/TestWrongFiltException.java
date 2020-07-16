@@ -94,16 +94,16 @@ public class TestWrongFiltException {
 		provaservizio.ParseJson(album);
 		
 		
-		String body = "{\"filter\": \"grande\",\r\n" + 
+		String body = "{\"filter\": \"NotAFilter\",\r\n" + 
 				"\"filterType\":\"filterWidth\",\r\n" + 
 				"\"width\": 600,\r\n" + 
 				"\"width2\":600}";
 		String body2 = "{\"filter\": \"$gt\",\r\n" + 
-				"\"filterType\":\"filtrochenonesiste\",\r\n" + 
+				"\"filterType\":\"NotAFilterType\",\r\n" + 
 				"\"width\": 600,\r\n" + 
 				"\"width2\":600}";
-				assertThrows(WrongFilterException.class,()->provaservizio.filtro(body));
-				assertThrows(WrongFilterException.class,()->provaservizio.filtro(body2));
+				assertThrows(WrongFilterException.class,()->provaservizio.filterFbService(body));
+				assertThrows(WrongFilterException.class,()->provaservizio.filterFbService(body2));
 
 		
 		
