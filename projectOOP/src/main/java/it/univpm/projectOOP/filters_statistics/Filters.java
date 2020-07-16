@@ -9,7 +9,7 @@ import it.univpm.projectOOP.model.FbAlbumPhoto;
 /**
  * Classe Filtri
  */
-public class Filtri {
+public class Filters {
 
 	/**
 	 * Filtra in base alla larghezza.

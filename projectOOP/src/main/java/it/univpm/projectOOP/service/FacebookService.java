@@ -16,8 +16,8 @@ import java.util.LinkedHashMap;
 
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
-import it.univpm.projectOOP.filters_statistics.Filtri;
-import it.univpm.projectOOP.filters_statistics.Statistiche;
+import it.univpm.projectOOP.filters_statistics.Filters;
+import it.univpm.projectOOP.filters_statistics.Statistics;
 import it.univpm.projectOOP.model.FacebookAlbum;
 import it.univpm.projectOOP.model.FbAlbumPhoto;
 
@@ -147,9 +147,9 @@ public class FacebookService {
 			int width = jbody.getInt("width");
 			if (filter.equals("$bt")) {
 				int width2 = jbody.getInt("width2");
-				listafiltrata = Filtri.filtroLarghezza(myfblist, filter, width, width2);
+				listafiltrata = Filters.filtroLarghezza(myfblist, filter, width, width2);
 			} else
-				listafiltrata = Filtri.filtroLarghezza(myfblist, filter, width, 0);
+				listafiltrata = Filters.filtroLarghezza(myfblist, filter, width, 0);
 		}
 
 		if (filterType.equals("filterHeight")) {
@@ -157,9 +157,9 @@ public class FacebookService {
 			int height = jbody.getInt("height");
 			if (filter.equals("$bt")) {
 				int height2 = jbody.getInt("height2");
-				listafiltrata = Filtri.filtroAltezza(myfblist, filter, height, height2);
+				listafiltrata = Filters.filtroAltezza(myfblist, filter, height, height2);
 			} else
-				listafiltrata = Filtri.filtroAltezza(myfblist, filter, height, 0);
+				listafiltrata = Filters.filtroAltezza(myfblist, filter, height, 0);
 		}
 
 		if (filterType.equals("filterWidthDim")) {
@@ -169,10 +169,10 @@ public class FacebookService {
 			if (filter.equals("$bt")) {
 				int width2 = jbody.getInt("width2");
 				int kbyte_dimension2 = jbody.getInt("kbyte_dimension2");
-				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, width2, kbyte_dimension,
+				listafiltrata = Filters.filtroLarghezzaDim(myfblist, filter, width, width2, kbyte_dimension,
 						kbyte_dimension2);
 			} else
-				listafiltrata = Filtri.filtroLarghezzaDim(myfblist, filter, width, 0, kbyte_dimension, 0);
+				listafiltrata = Filters.filtroLarghezzaDim(myfblist, filter, width, 0, kbyte_dimension, 0);
 
 		}
 		if (filterType.equals("filterHeightDim")) {
@@ -183,10 +183,10 @@ public class FacebookService {
 			if (filter.equals("$bt")) {
 				int height2 = jbody.getInt("height2");
 				int kbyte_dimension2 = jbody.getInt("kbyte_dimension2");
-				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, height2, kbyte_dimension,
+				listafiltrata = Filters.filtroAltezzaDim(myfblist, filter, height, height2, kbyte_dimension,
 						kbyte_dimension2);
 			} else
-				listafiltrata = Filtri.filtroAltezzaDim(myfblist, filter, height, 0, kbyte_dimension, 0);
+				listafiltrata = Filters.filtroAltezzaDim(myfblist, filter, height, 0, kbyte_dimension, 0);
 
 		}
 
@@ -210,9 +210,9 @@ public class FacebookService {
 		if (!typeStat.equals("dim") && !typeStat.equals("temp"))
 			throw new WrongFilterStatsException("Puoi solo cercare statistiche temporali o dimensionali!");
 		if (typeStat.equals("temp"))
-			return Statistiche.statistichetemp(myfblist);
+			return Statistics.statistichetemp(myfblist);
 		else
-			return Statistiche.statistichedim(myfblist);
+			return Statistics.statistichedim(myfblist);
 
 	}
 

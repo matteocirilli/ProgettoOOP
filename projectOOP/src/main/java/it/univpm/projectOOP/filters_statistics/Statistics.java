@@ -9,7 +9,7 @@ import it.univpm.projectOOP.model.*;
 /**
  * Classe delle Statistiche.
  */
-public class Statistiche {
+public class Statistics {
 
 	/**
 	 * Statistiche in base alle dimensione in kilobyte
