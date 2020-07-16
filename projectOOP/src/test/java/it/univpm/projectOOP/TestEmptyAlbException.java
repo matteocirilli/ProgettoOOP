@@ -24,6 +24,7 @@ public class TestEmptyAlbException {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
+		provaservizio = new FacebookService();
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class TestEmptyAlbException {
 	 */
 	@Test
 	void testEmptyAlbumEx() throws EmptyAlbumListException {
-		provaservizio = new FacebookService();
+		
 		assertThrows(EmptyAlbumListException.class, () -> provaservizio.getFacebookAlbums());
 
 	}
