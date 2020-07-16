@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
-import it.univpm.projectOOP.exceptions.WrongFilterException;
+import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
 import it.univpm.projectOOP.filters_statistics.Filtri;
 import it.univpm.projectOOP.filters_statistics.Statistiche;
 import it.univpm.projectOOP.model.FacebookAlbum;
@@ -127,9 +127,11 @@ public class FacebookService {
 	 * @param body Stringa contenente i valori con i quali confrontare tutte le foto
 	 *             degli album.
 	 * @return ritorna la lista filtrata.
-	 * @throws WrongFilterException eccezione che parte se il filtro non è corretto.
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
 	 */
-	public ArrayList<FacebookAlbum> filterFbService(String body) throws WrongFilterException {
+	public ArrayList<FacebookAlbum> filterFbService(String body) throws WrongFilterStatsException {
 
 		ArrayList<FacebookAlbum> listafiltrata = new ArrayList<FacebookAlbum>();
 		JSONObject jbody = new JSONObject(body);
@@ -139,7 +141,7 @@ public class FacebookService {
 
 		if (!filterType.equals("filterWidth") && !filterType.equals("filterHeight")
 				&& !filterType.equals("filterWidthDim") && !filterType.equals("filterHeightDim"))
-			throw new WrongFilterException("Il filtro inserito non è corretto");
+			throw new WrongFilterStatsException("Il filtro inserito non è corretto");
 
 		if (filterType.equals("filterWidth")) {
 			int width = jbody.getInt("width");
@@ -197,22 +199,23 @@ public class FacebookService {
 	 *
 	 * @param body stringa contenente il tipo di filtro da utilizzare.
 	 * @return La linked Hash Map con tutte le statistiche.
-	 * @throws WrongFilterException eccezione che parte se il tipo di statiscica non
-	 *                              è corretto.
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
 	 */
-	public LinkedHashMap<String, String> statsFbService(String body) throws WrongFilterException {
+	public LinkedHashMap<String, String> statsFbService(String body) throws WrongFilterStatsException {
 
 		JSONObject jbody = new JSONObject(body);
 		String typeStat = jbody.getString("typeStat");
 		if (!typeStat.equals("dim") && !typeStat.equals("temp"))
-			throw new WrongFilterException("Puoi solo cercare statistiche temporali o dimensionali!");
+			throw new WrongFilterStatsException("Puoi solo cercare statistiche temporali o dimensionali!");
 		if (typeStat.equals("temp"))
 			return Statistiche.statistichetemp(myfblist);
 		else
 			return Statistiche.statistichedim(myfblist);
 
 	}
-	
+
 	public String getMetadata(Class<?> myClass) {
 		// TODO Auto-generated method stub
 		try {

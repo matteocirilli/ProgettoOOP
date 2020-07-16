@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.univpm.projectOOP.exceptions.WrongFilterException;
+import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
 
 import it.univpm.projectOOP.service.FacebookService;
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +24,7 @@ public class TestWrongFiltException {
 	}
 
 	@Test
-	public void testWrongFilterEx () throws WrongFilterException, ParseException {
+	public void testWrongFilterEx () throws WrongFilterStatsException, ParseException {
 		
 		FacebookService provaservizio = new FacebookService();
 		
@@ -102,8 +102,8 @@ public class TestWrongFiltException {
 				"\"filterType\":\"filtrochenonesiste\",\r\n" + 
 				"\"width\": 600,\r\n" + 
 				"\"width2\":600}";
-				assertThrows(WrongFilterException.class,()->provaservizio.filtro(body));
-				assertThrows(WrongFilterException.class,()->provaservizio.filtro(body2));
+				assertThrows(WrongFilterStatsException.class,()->provaservizio.filtro(body));
+				assertThrows(WrongFilterStatsException.class,()->provaservizio.filtro(body2));
 
 		
 		

@@ -2,7 +2,7 @@ package it.univpm.projectOOP.filters_statistics;
 
 import java.util.ArrayList;
 
-import it.univpm.projectOOP.exceptions.WrongFilterException;
+import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
 import it.univpm.projectOOP.model.FacebookAlbum;
 import it.univpm.projectOOP.model.FbAlbumPhoto;
 
@@ -19,10 +19,12 @@ public class Filtri {
 	 * @param width    prende come parametro la larghezza
 	 * @param width2   prende come parametro la seconda larghezza per il filtro $bt
 	 * @return ritorna la lista filtrata
-	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezza(ArrayList<FacebookAlbum> myfblist, String filter, int width,
-			int width2) throws WrongFilterException {
+			int width2) throws WrongFilterStatsException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -30,7 +32,7 @@ public class Filtri {
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte")
 				&& !filter.equals("$bt"))
-			throw new WrongFilterException("Il filtro inserito non è corretto");
+			throw new WrongFilterStatsException("Il filtro inserito non è corretto");
 
 		ArrayList<FbAlbumPhoto> photofilt = new ArrayList<FbAlbumPhoto>();
 
@@ -102,10 +104,13 @@ public class Filtri {
 	 * @param height   prende come parametro l'altezza
 	 * @param height2  prende come parametro la seconda altezza per il filtro $bt
 	 * @return ritorna la lista filtrata
-	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
+	 * 
 	 */
 	public static ArrayList<FacebookAlbum> filtroAltezza(ArrayList<FacebookAlbum> myfblist, String filter, int height,
-			int height2) throws WrongFilterException {
+			int height2) throws WrongFilterStatsException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -115,7 +120,7 @@ public class Filtri {
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte")
 				&& !filter.equals("$bt"))
-			throw new WrongFilterException("Il filtro inserito non è corretto");
+			throw new WrongFilterStatsException("Il filtro inserito non è corretto");
 
 		ArrayList<FbAlbumPhoto> photofilt = new ArrayList<FbAlbumPhoto>();
 
@@ -188,10 +193,12 @@ public class Filtri {
 	 * @param kbyte_dimension2 prende come parametro la seconda dimensione in
 	 *                         kilobyte per il filtro $bt
 	 * @return ritorna la lista filtrata
-	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroLarghezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
-			int width, int width2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
+			int width, int width2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterStatsException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -201,7 +208,7 @@ public class Filtri {
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte")
 				&& !filter.equals("$bt"))
-			throw new WrongFilterException("Il filtro inserito non è corretto");
+			throw new WrongFilterStatsException("Il filtro inserito non è corretto");
 
 		ArrayList<FbAlbumPhoto> photofilt = new ArrayList<FbAlbumPhoto>();
 
@@ -280,10 +287,12 @@ public class Filtri {
 	 * @param kbyte_dimension2 prende come parametro la seconda dimensione in
 	 *                         kilobyte per il filtro $bt
 	 * @return ritorna la lista filtrata
-	 * @throws WrongFilterException Eccezione che parte se il filtro non è corretto
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
 	 */
 	public static ArrayList<FacebookAlbum> filtroAltezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
-			int height, int height2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterException {
+			int height, int height2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterStatsException {
 
 		ArrayList<FacebookAlbum> filteredList = new ArrayList<FacebookAlbum>();
 
@@ -292,7 +301,7 @@ public class Filtri {
 
 		if (!filter.equals("$gt") && !filter.equals("$gte") && !filter.equals("$lt") && !filter.equals("$lte")
 				&& !filter.equals("$bt"))
-			throw new WrongFilterException("Il filtro inserito non è corretto");
+			throw new WrongFilterStatsException("Il filtro inserito non è corretto");
 
 		ArrayList<FbAlbumPhoto> photofilt = new ArrayList<FbAlbumPhoto>();
 
