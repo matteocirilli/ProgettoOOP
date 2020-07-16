@@ -11,7 +11,7 @@ public class EmptyAlbumListException extends Exception {
 	/**
 	 * Eccezione che parte se la lista di album è vuota
 	 *
-	 * @param prende come parametro il messaggio di errore
+	 * @param message prende come parametro il messaggio di errore
 	 */
 	public EmptyAlbumListException(String message) {
 

@@ -37,14 +37,14 @@ public class TestEmptyAlbException {
 	}
 
 	/**
-	 * Test che controlla se l'album è vuota
+	 * Test sull'eccezione di un album vuoto
 	 *
 	 * @throws EmptyAlbumListException Eccezione che parte se la lista di album è
 	 *                                 vuota
 	 */
 	@Test
 	void testEmptyAlbumEx() throws EmptyAlbumListException {
-		
+
 		assertThrows(EmptyAlbumListException.class, () -> provaservizio.getFacebookAlbums());
 
 	}

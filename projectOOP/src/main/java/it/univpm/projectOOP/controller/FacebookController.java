@@ -33,11 +33,11 @@ import it.univpm.projectOOP.model.*;
 
 public class FacebookController {
 
-	/** crea un nuovo facebook service */
+	/** crea un nuovo facebook service. */
 	FacebookService fbservice = new FacebookService();
 
 	/**
-	 * richiesta POST "/fb"
+	 * richiesta POST "/fb".
 	 *
 	 * @param url prende dal body l'url per la richiesta post
 	 * @return ritorna un messaggio di ok se la richiesta è andata a buon fine
@@ -59,8 +59,8 @@ public class FacebookController {
 	}
 
 	/**
-	 * richiesta GET "/fb"
-	 * 
+	 * richiesta GET "/fb".
+	 *
 	 * @return ritorna tutti gli album con le relative foto
 	 * @throws EmptyAlbumListException eccezione che parte quando la lista di album
 	 *                                 è vuota
@@ -71,7 +71,6 @@ public class FacebookController {
 	}
 
 	/**
-	 * 
 	 * @see it.univpm.projectOOP.filters_statistics.*;
 	 */
 
@@ -99,7 +98,7 @@ public class FacebookController {
 	}
 
 	/**
-	 * richiesta POST "/fb/filters"
+	 * richiesta POST "/fb/filters".
 	 *
 	 * @param body contenente il tipo di filtro e i parametri per il contronto
 	 * @return ritorna solo le foto degli album che soddisfano le i parametri dei
@@ -121,6 +120,12 @@ public class FacebookController {
 		return new ResponseEntity<>(fbservice.filterFbService(body), HttpStatus.OK);
 	}
 
+	/**
+	 * Metodo per ottenere i metadata della classe facebook album
+	 * 
+	 * @see it.univpm.projectOOP.model.*;
+	 * @return i metadata
+	 */
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> getMeta() {
 		String meta = fbservice.getMetadata(FacebookAlbum.class);

@@ -11,7 +11,7 @@ public class WrongFilterStatsException extends Exception {
 	/**
 	 * Eccezione che parte se il tipo filtro o il tipo di statistica non è corretto
 	 *
-	 * @param string prende come parametro il messaggio di errore
+	 * @param message prende come parametro il messaggio di errore
 	 */
 	public WrongFilterStatsException(String message) {
 		super(message);
