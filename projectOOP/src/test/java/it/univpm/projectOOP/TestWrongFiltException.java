@@ -11,16 +11,38 @@ import it.univpm.projectOOP.exceptions.WrongFilterStatsException;
 import it.univpm.projectOOP.service.FacebookService;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe TestWrongFiltException.
+ */
 public class TestWrongFiltException {
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test wrong filter ex.
+	 *
+	 * @throws WrongFilterStatsException Eccezione che parte se il tipo di filtro
+	 *                                   filtro o il tipo di statistica non è
+	 *                                   corretto
+	 * @throws ParseException            Eccezione che parte se il processo di
+	 *                                   parsing è errato
+	 */
 	@Test
 	public void testWrongFilterEx() throws WrongFilterStatsException, ParseException {
 

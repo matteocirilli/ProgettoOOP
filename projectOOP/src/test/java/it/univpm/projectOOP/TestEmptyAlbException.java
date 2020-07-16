@@ -1,6 +1,5 @@
 package it.univpm.projectOOP;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -10,30 +9,43 @@ import org.junit.jupiter.api.Test;
 import it.univpm.projectOOP.exceptions.EmptyAlbumListException;
 import it.univpm.projectOOP.service.FacebookService;
 
-
-
+/**
+ * Classe TestEmptyAlbException.
+ */
 public class TestEmptyAlbException {
 
-
+	/** The provaservizio. */
 	FacebookService provaservizio;
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test che controlla se l'album è vuota
+	 *
+	 * @throws EmptyAlbumListException Eccezione che parte se la lista di album è
+	 *                                 vuota
+	 */
 	@Test
-	void testEmptyAlbumEx () throws EmptyAlbumListException {
+	void testEmptyAlbumEx() throws EmptyAlbumListException {
 		provaservizio = new FacebookService();
-		assertThrows(EmptyAlbumListException.class, ()-> provaservizio.getFacebookAlbums());
+		assertThrows(EmptyAlbumListException.class, () -> provaservizio.getFacebookAlbums());
 
 	}
-
-
-
-
 
 }
