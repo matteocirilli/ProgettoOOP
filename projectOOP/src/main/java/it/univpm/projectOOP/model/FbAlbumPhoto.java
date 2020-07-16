@@ -23,7 +23,7 @@ public class FbAlbumPhoto {
 	/**
 	 * Overriding del metodo equals
 	 *
-	 * @param obj
+	 * @param obj oggetto
 	 * @return true, se va a buon fine
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class FbAlbumPhoto {
 	/**
 	 * Metodo SET per numero kilobyte di una foto
 	 *
-	 * @param byte_dimension numero kilobyte da settare
+	 * @param kbyte_dimension numero kilobyte da settare
 	 */
 	public void setKbyte_dimension(int kbyte_dimension) {
 		this.kbyte_dimension = kbyte_dimension;

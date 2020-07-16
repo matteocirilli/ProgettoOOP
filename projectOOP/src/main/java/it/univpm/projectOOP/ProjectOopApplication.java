@@ -14,7 +14,7 @@ public class ProjectOopApplication {
 	/**
 	 * Classe principale
 	 *
-	 * @param args
+	 * @param args metodo principale
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectOopApplication.class, args);

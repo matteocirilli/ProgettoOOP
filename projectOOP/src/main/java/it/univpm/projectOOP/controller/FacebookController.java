@@ -123,7 +123,7 @@ public class FacebookController {
 	/**
 	 * Metodo per ottenere i metadata della classe facebook album
 	 * 
-	 * @see it.univpm.projectOOP.model.*;
+	 * 
 	 * @return i metadata
 	 */
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET, produces = "application/json")
