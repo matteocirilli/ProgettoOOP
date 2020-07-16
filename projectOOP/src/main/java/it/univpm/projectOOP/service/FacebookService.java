@@ -217,7 +217,7 @@ public class FacebookService {
 	}
 
 	public String getMetadata(Class<?> myClass) {
-		// TODO Auto-generated method stub
+		
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			JsonSchemaGenerator schemaGen = new JsonSchemaGenerator(mapper);
