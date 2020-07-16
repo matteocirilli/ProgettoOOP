@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Classe TestWrongFiltException.
  */
-public class TestWrongFiltException {
+public class TestWrongFiltStatsException {
 
 	/**
 	 * Sets the up.
