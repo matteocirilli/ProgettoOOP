@@ -291,6 +291,7 @@ public class Filters {
 	 *                                   filtro o il tipo di statistica non è
 	 *                                   corretto
 	 */
+	
 	public static ArrayList<FacebookAlbum> filtroAltezzaDim(ArrayList<FacebookAlbum> myfblist, String filter,
 			int height, int height2, int kbyte_dimension, int kbyte_dimension2) throws WrongFilterStatsException {
 
