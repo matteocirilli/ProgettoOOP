@@ -252,7 +252,7 @@ public class Filters {
 					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getWidth() >= width
-						&& myfblist.get(i).getAlbum().get(j).getWidth() >= width2
+						&& myfblist.get(i).getAlbum().get(j).getWidth() <= width2
 						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension
 						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension2) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
@@ -345,7 +345,7 @@ public class Filters {
 					fotofilt.setKbyte_dimension(myfblist.get(i).getAlbum().get(j).getKbyte_dimension());
 				}
 				if (filter.equals("$bt") && myfblist.get(i).getAlbum().get(j).getHeight() >= height
-						&& myfblist.get(i).getAlbum().get(j).getHeight() >= height2
+						&& myfblist.get(i).getAlbum().get(j).getHeight() <= height2
 						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() >= kbyte_dimension
 						&& myfblist.get(i).getAlbum().get(j).getKbyte_dimension() <= kbyte_dimension2) {
 					fotofilt.setWidth(myfblist.get(i).getAlbum().get(j).getWidth());
